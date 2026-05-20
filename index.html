@@ -35,212 +35,116 @@
       --shadow:    0 2px 16px rgba(13,122,110,.10);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
     a { color: var(--teal); }
-
-    /* ── Skip link ── */
     .skip { position: absolute; left:-9999px; top:4px; }
     .skip:focus { left:16px; background:var(--teal); color:#fff; padding:6px 12px; border-radius:6px; z-index:999; }
 
-    /* ── Header ── */
     header {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 100;
     }
-    .logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.3rem;
-      color: var(--teal);
-      letter-spacing: -.01em;
-    }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--teal); letter-spacing: -.01em; }
     .lang-btns { display:flex; gap:8px; }
     .lang-btn {
       font-size:.82rem; font-weight:500; padding:5px 14px;
       border:1.5px solid var(--border); border-radius:20px;
-      background:transparent; cursor:pointer; color:var(--ink-mid);
-      transition: all .15s;
+      background:transparent; cursor:pointer; color:var(--ink-mid); transition: all .15s;
     }
     .lang-btn.active, .lang-btn:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-lt); }
 
-    /* ── Main layout ── */
-    main { max-width: 860px; margin: 0 auto; padding: 40px 20px 120px; }
+    main { max-width: 900px; margin: 0 auto; padding: 40px 20px 120px; }
 
-    /* ── Hero ── */
     .hero { text-align:center; margin-bottom: 40px; }
-    .hero h1 {
-      font-family:'DM Serif Display',serif;
-      font-size: clamp(2rem,5vw,2.8rem);
-      color: var(--ink);
-      line-height:1.2;
-      margin-bottom:12px;
-    }
+    .hero h1 { font-family:'DM Serif Display',serif; font-size: clamp(2rem,5vw,2.8rem); color: var(--ink); line-height:1.2; margin-bottom:12px; }
     .hero h1 span { color: var(--teal); }
     .hero p { color:var(--ink-soft); font-size:1.05rem; max-width:520px; margin:0 auto; }
 
-    /* ── Filter card ── */
     .filter-card {
-      background:var(--white);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      margin-bottom: 28px;
+      background:var(--white); border:1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); margin-bottom: 28px;
     }
-    .filter-card h2 {
-      font-family:'DM Serif Display',serif;
-      font-size:1.15rem;
-      margin-bottom:4px;
-    }
+    .filter-card h2 { font-family:'DM Serif Display',serif; font-size:1.15rem; margin-bottom:4px; }
     .filter-card .sub { font-size:.85rem; color:var(--ink-soft); margin-bottom:20px; }
     .filter-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
     .filter-group label { display:block; font-size:.8rem; font-weight:600; color:var(--ink-mid); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
     select {
       width:100%; padding:10px 14px; border:1.5px solid var(--border);
       border-radius:8px; font-family:inherit; font-size:.95rem;
-      background:var(--bg); color:var(--ink); cursor:pointer;
-      appearance:none;
+      background:var(--bg); color:var(--ink); cursor:pointer; appearance:none;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat:no-repeat; background-position: right 12px center;
     }
     select:focus { outline:none; border-color:var(--teal); }
     .filter-actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
-    .btn-primary {
-      background:var(--teal); color:#fff; border:none; padding:11px 26px;
-      border-radius:8px; font-family:inherit; font-size:.95rem; font-weight:500;
-      cursor:pointer; transition:background .15s;
-    }
+    .btn-primary { background:var(--teal); color:#fff; border:none; padding:11px 26px; border-radius:8px; font-family:inherit; font-size:.95rem; font-weight:500; cursor:pointer; transition:background .15s; }
     .btn-primary:hover { background:var(--teal-mid); }
-    .btn-ghost {
-      background:transparent; color:var(--ink-soft); border:1.5px solid var(--border);
-      padding:11px 20px; border-radius:8px; font-family:inherit; font-size:.95rem;
-      cursor:pointer; transition:all .15s;
-    }
+    .btn-ghost { background:transparent; color:var(--ink-soft); border:1.5px solid var(--border); padding:11px 20px; border-radius:8px; font-family:inherit; font-size:.95rem; cursor:pointer; transition:all .15s; }
     .btn-ghost:hover { border-color:var(--ink-soft); color:var(--ink); }
 
-    /* ── Category tabs ── */
+    .results-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; margin-bottom:14px; }
+    .results-header h2 { font-family:'DM Serif Display',serif; font-size:1.2rem; color:var(--ink); }
+    .results-count { font-size:.85rem; color:var(--ink-soft); }
+
     .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
-    .tab {
-      padding:6px 16px; border-radius:20px; border:1.5px solid var(--border);
-      background:var(--white); font-size:.84rem; font-weight:500; cursor:pointer;
-      color:var(--ink-mid); transition:all .15s;
-      /* GoatCounter click tracking via data attributes */
-    }
+    .tab { padding:6px 16px; border-radius:20px; border:1.5px solid var(--border); background:var(--white); font-size:.84rem; font-weight:500; cursor:pointer; color:var(--ink-mid); transition:all .15s; }
     .tab.active, .tab:hover { background:var(--teal); border-color:var(--teal); color:#fff; }
 
-    /* ── Results ── */
-    #results-section h2 {
-      font-family:'DM Serif Display',serif;
-      font-size:1.2rem;
-      margin-bottom:14px;
-      color:var(--ink);
-    }
-    .empty-state {
-      text-align:center; padding:40px 20px;
-      color:var(--ink-soft); font-size:.95rem;
-      border:1.5px dashed var(--border); border-radius:var(--radius);
-    }
+    .empty-state { text-align:center; padding:40px 20px; color:var(--ink-soft); font-size:.95rem; border:1.5px dashed var(--border); border-radius:var(--radius); }
     .resource-grid { display:grid; gap:14px; }
-    .card {
-      background:var(--white); border:1px solid var(--border);
-      border-radius:var(--radius); padding:20px 22px;
-      box-shadow:0 1px 6px rgba(0,0,0,.05);
-      transition: box-shadow .15s, transform .1s;
-      cursor:default;
-    }
+
+    .card { background:var(--white); border:1px solid var(--border); border-radius:var(--radius); padding:20px 22px; box-shadow:0 1px 6px rgba(0,0,0,.05); transition: box-shadow .15s, transform .1s; }
     .card:hover { box-shadow: var(--shadow); transform:translateY(-1px); }
     .card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
     .card-name { font-weight:600; font-size:1rem; color:var(--ink); }
-    .badge {
-      font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px;
-      text-transform:uppercase; letter-spacing:.05em; white-space:nowrap;
-    }
-    .badge-food       { background:#e8f5e9; color:#2e7d32; }
-    .badge-housing    { background:#e3f2fd; color:#1565c0; }
-    .badge-health     { background:#fce4ec; color:#ad1457; }
-    .badge-mental     { background:#f3e5f5; color:#6a1b9a; }
-    .badge-immigration{ background:#fff8e1; color:#e65100; }
-    .badge-family     { background:#e8eaf6; color:#283593; }
-    .badge-safety     { background:#fbe9e7; color:#bf360c; }
-    .badge-seniors    { background:#e0f7fa; color:#006064; }
+    .badge { font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px; text-transform:uppercase; letter-spacing:.05em; white-space:nowrap; }
+    .badge-food        { background:#e8f5e9; color:#2e7d32; }
+    .badge-housing     { background:#e3f2fd; color:#1565c0; }
+    .badge-health      { background:#fce4ec; color:#ad1457; }
+    .badge-mental      { background:#f3e5f5; color:#6a1b9a; }
+    .badge-immigration { background:#fff8e1; color:#e65100; }
+    .badge-family      { background:#e8eaf6; color:#283593; }
+    .badge-safety      { background:#fbe9e7; color:#bf360c; }
+    .badge-seniors     { background:#e0f7fa; color:#006064; }
 
     .card-desc { font-size:.9rem; color:var(--ink-soft); margin:8px 0 10px; }
     .card-meta { display:flex; gap:14px; flex-wrap:wrap; font-size:.82rem; color:var(--ink-soft); }
-    .card-meta span::before { margin-right:4px; }
-    .card-actions { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
-    .card-link {
-      font-size:.82rem; font-weight:500; padding:5px 13px; border-radius:6px;
-      text-decoration:none; border:1.5px solid var(--border); color:var(--teal);
-      transition:all .15s;
-    }
+    .card-actions { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+    .card-link { font-size:.82rem; font-weight:500; padding:5px 13px; border-radius:6px; text-decoration:none; border:1.5px solid var(--border); color:var(--teal); transition:all .15s; background:none; cursor:pointer; font-family:inherit; }
     .card-link:hover { background:var(--teal-lt); border-color:var(--teal); }
     .card-link.phone { color:var(--ink-mid); }
+    .card-langs { font-size:.75rem; color:var(--ink-soft); background:var(--bg); padding:3px 8px; border-radius:10px; border:1px solid var(--border); }
 
-    /* ── Error report button ── */
     #report-btn {
       position:fixed; bottom:24px; right:24px; z-index:200;
       background:var(--red); color:#fff; border:none;
       padding:11px 18px; border-radius:40px; font-family:inherit;
       font-size:.85rem; font-weight:600; cursor:pointer;
-      box-shadow:0 4px 14px rgba(201,64,64,.4);
-      transition:background .15s, transform .1s;
+      box-shadow:0 4px 14px rgba(201,64,64,.4); transition:background .15s, transform .1s;
       display:flex; align-items:center; gap:7px;
     }
     #report-btn:hover { background:#a83232; transform:scale(1.03); }
 
-    /* ── Modal ── */
-    .modal-overlay {
-      display:none; position:fixed; inset:0;
-      background:rgba(0,0,0,.45); z-index:300;
-      align-items:center; justify-content:center; padding:20px;
-    }
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.45); z-index:300; align-items:center; justify-content:center; padding:20px; }
     .modal-overlay.open { display:flex; }
-    .modal {
-      background:var(--white); border-radius:16px;
-      padding:32px; max-width:500px; width:100%;
-      box-shadow:0 20px 60px rgba(0,0,0,.25);
-      position:relative;
-    }
+    .modal { background:var(--white); border-radius:16px; padding:32px; max-width:500px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,.25); position:relative; max-height:90vh; overflow-y:auto; }
     .modal h2 { font-family:'DM Serif Display',serif; font-size:1.3rem; margin-bottom:6px; }
     .modal .sub { font-size:.85rem; color:var(--ink-soft); margin-bottom:22px; }
     .modal label { display:block; font-size:.8rem; font-weight:600; color:var(--ink-mid); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; margin-top:14px; }
-    .modal input, .modal select, .modal textarea {
-      width:100%; padding:10px 14px; border:1.5px solid var(--border);
-      border-radius:8px; font-family:inherit; font-size:.93rem;
-      background:var(--bg); color:var(--ink);
-    }
+    .modal input, .modal select, .modal textarea { width:100%; padding:10px 14px; border:1.5px solid var(--border); border-radius:8px; font-family:inherit; font-size:.93rem; background:var(--bg); color:var(--ink); }
     .modal textarea { min-height:90px; resize:vertical; }
     .modal input:focus, .modal select:focus, .modal textarea:focus { outline:none; border-color:var(--teal); }
     .modal-actions { display:flex; gap:10px; margin-top:22px; justify-content:flex-end; }
     .modal-close { position:absolute; top:16px; right:18px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink-soft); line-height:1; }
     .form-success { display:none; text-align:center; padding:20px 0; }
     .form-success .check { font-size:2.5rem; margin-bottom:10px; }
-    .form-success p { color:var(--ink-soft); }
     .form-error-msg { display:none; color:var(--red); font-size:.85rem; margin-top:8px; }
 
-    /* ── Footer ── */
-    footer {
-      border-top:1px solid var(--border); padding:28px 24px;
-      text-align:center; font-size:.84rem; color:var(--ink-soft);
-      max-width:860px; margin:0 auto;
-    }
+    footer { border-top:1px solid var(--border); padding:28px 24px; text-align:center; font-size:.84rem; color:var(--ink-soft); max-width:900px; margin:0 auto; }
     footer p + p { margin-top:6px; }
     footer strong { color:var(--ink); }
 
-    /* ── Responsive ── */
     @media (max-width:520px) {
       .filter-grid { grid-template-columns:1fr; }
       main { padding:28px 16px 100px; }
@@ -248,7 +152,6 @@
   </style>
 </head>
 <body>
-
 <a href="#main" class="skip">Skip to content</a>
 
 <header>
@@ -260,14 +163,13 @@
 </header>
 
 <main id="main">
-
   <section class="hero">
     <h1>Find the help you need<br><span>in San José.</span></h1>
     <p>Free. Bilingual. Built by a local. Answer three quick questions and we'll show you the right resources — no signups, no judgment.</p>
   </section>
 
   <section class="filter-card" aria-label="Filter resources">
-    <h2 id="filter-heading">Three quick questions</h2>
+    <h2>Three quick questions</h2>
     <p class="sub">Tres preguntas rápidas. Tell us a little so we can show what's most relevant.</p>
     <div class="filter-grid">
       <div class="filter-group">
@@ -313,21 +215,23 @@
   </section>
 
   <section id="results-section" aria-label="Resources">
-    <h2>Results</h2>
-    <div class="tabs" role="tablist" aria-label="Category filter">
+    <div class="results-header">
+      <h2>Results</h2>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="tabs" role="tablist">
       <button class="tab active" data-cat="" onclick="filterTab(this,'')">All</button>
-      <button class="tab" data-cat="food" onclick="filterTab(this,'food')">Food</button>
-      <button class="tab" data-cat="housing" onclick="filterTab(this,'housing')">Housing</button>
-      <button class="tab" data-cat="health" onclick="filterTab(this,'health')">Health</button>
-      <button class="tab" data-cat="mental" onclick="filterTab(this,'mental')">Mental health</button>
-      <button class="tab" data-cat="immigration" onclick="filterTab(this,'immigration')">Immigration</button>
-      <button class="tab" data-cat="family" onclick="filterTab(this,'family')">Family</button>
-      <button class="tab" data-cat="safety" onclick="filterTab(this,'safety')">DV / Safety</button>
-      <button class="tab" data-cat="seniors" onclick="filterTab(this,'seniors')">Seniors</button>
+      <button class="tab" data-cat="food" onclick="filterTab(this,'food')">🍎 Food</button>
+      <button class="tab" data-cat="housing" onclick="filterTab(this,'housing')">🏠 Housing</button>
+      <button class="tab" data-cat="health" onclick="filterTab(this,'health')">🏥 Health</button>
+      <button class="tab" data-cat="mental" onclick="filterTab(this,'mental')">🧠 Mental health</button>
+      <button class="tab" data-cat="immigration" onclick="filterTab(this,'immigration')">🌎 Immigration</button>
+      <button class="tab" data-cat="family" onclick="filterTab(this,'family')">👨‍👩‍👧 Family</button>
+      <button class="tab" data-cat="safety" onclick="filterTab(this,'safety')">🛡️ DV / Safety</button>
+      <button class="tab" data-cat="seniors" onclick="filterTab(this,'seniors')">👴 Seniors</button>
     </div>
     <div id="results-grid" class="resource-grid"></div>
   </section>
-
 </main>
 
 <footer>
@@ -336,18 +240,13 @@
   <p>Found an error? Use the red button (bottom right) or email <a href="mailto:ananyabvs@gmail.com">ananyabvs@gmail.com</a>.</p>
 </footer>
 
-<!-- Error report button -->
-<button id="report-btn" onclick="openModal()" aria-haspopup="dialog">
-  ⚠️ Report an error / Reportar
-</button>
+<button id="report-btn" onclick="openModal()" aria-haspopup="dialog">⚠️ Report an error / Reportar</button>
 
-<!-- Error report modal -->
 <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
     <h2 id="modal-title">Report an error</h2>
     <p class="sub">Help us keep this directory accurate. / Ayúdanos a mantenerlo preciso.</p>
-
     <div id="modal-form-body">
       <form id="error-form" action="https://formspree.io/f/mvzykqvd" method="POST">
         <label for="err-type">What's wrong? / ¿Qué pasa?</label>
@@ -360,28 +259,20 @@
           <option value="A resource is missing">A resource is missing</option>
           <option value="Other">Other</option>
         </select>
-
         <label for="err-resource">Which resource? / ¿Cuál recurso?</label>
         <input type="text" id="err-resource" name="resource_name" placeholder="Name of the resource..." />
-
         <label for="err-detail">Details / Detalles</label>
         <textarea id="err-detail" name="details" placeholder="Tell us what's wrong..."></textarea>
-
         <label for="err-email">Your email (optional)</label>
         <input type="email" id="err-email" name="_replyto" placeholder="you@example.com" />
-
-        <!-- Honeypot -->
         <input type="text" name="_gotcha" style="display:none" />
-
         <p class="form-error-msg" id="form-err-msg">Something went wrong. Please email <a href="mailto:ananyabvs@gmail.com">ananyabvs@gmail.com</a> directly.</p>
-
         <div class="modal-actions">
           <button type="button" class="btn-ghost" onclick="closeModal()">Cancel</button>
           <button type="submit" class="btn-primary">Send report</button>
         </div>
       </form>
     </div>
-
     <div class="form-success" id="form-success">
       <div class="check">✓</div>
       <p><strong>Thank you — report sent.</strong></p>
@@ -394,213 +285,139 @@
 </div>
 
 <script>
-// ── Resource data ──────────────────────────────────────────────────
 const RESOURCES = [
-  {
-    id: "second-harvest",
-    name: "Second Harvest of Silicon Valley",
-    cat: "food",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es","vi","zh"],
-    desc: "Free food distributions at dozens of sites across Santa Clara County. No ID required.",
-    phone: "(408) 266-8866",
-    website: "https://www.shfb.org",
-    hours: "Multiple sites, various hours"
-  },
-  {
-    id: "catholic-charities-food",
-    name: "Catholic Charities of Santa Clara County",
-    cat: "food",
-    areas: ["downtown","east","south"],
-    langs: ["en","es"],
-    desc: "Emergency food pantry, hot meals, and food vouchers for low-income families.",
-    phone: "(408) 944-0567",
-    website: "https://catholiccharitiesscc.org",
-    hours: "Mon–Fri 9am–5pm"
-  },
-  {
-    id: "downtown-streets",
-    name: "Downtown Streets Team",
-    cat: "housing",
-    areas: ["downtown"],
-    langs: ["en","es"],
-    desc: "Empowers unhoused neighbors through work experience and wraparound services toward stable housing.",
-    phone: "(408) 971-7000",
-    website: "https://www.streetsteam.org",
-    hours: "Mon–Fri 8am–5pm"
-  },
-  {
-    id: "bhhc",
-    name: "Bill Wilson Center",
-    cat: "housing",
-    areas: ["downtown","east","south","north"],
-    langs: ["en","es"],
-    desc: "Emergency and transitional housing for youth and families experiencing homelessness.",
-    phone: "(408) 243-0222",
-    website: "https://billwilsoncenter.org",
-    hours: "24/7 crisis line"
-  },
-  {
-    id: "vta-health",
-    name: "Valley Health Centers",
-    cat: "health",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es","vi","zh"],
-    desc: "Low-cost primary care, dental, and vision for uninsured and Medi-Cal patients across SJ.",
-    phone: "(408) 729-2028",
-    website: "https://www.valleymedical.org/vhc",
-    hours: "Mon–Fri 8am–5pm"
-  },
-  {
-    id: "gardner-health",
-    name: "Gardner Health Services",
-    cat: "health",
-    areas: ["east","south"],
-    langs: ["en","es","vi"],
-    desc: "Federally Qualified Health Center offering primary, behavioral, and dental care on a sliding-fee scale.",
-    phone: "(408) 457-7100",
-    website: "https://gardnerhealthservices.org",
-    hours: "Mon–Fri 8am–6pm"
-  },
-  {
-    id: "momentum-mh",
-    name: "Momentum for Mental Health",
-    cat: "mental",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es"],
-    desc: "Outpatient mental health counseling, crisis services, and psychiatric care. Sliding-scale fees available.",
-    phone: "(408) 559-5600",
-    website: "https://www.momentumformh.org",
-    hours: "Mon–Fri 8:30am–5pm; 24/7 crisis"
-  },
-  {
-    id: "nami-scc",
-    name: "NAMI Santa Clara County",
-    cat: "mental",
-    areas: ["downtown","east","west"],
-    langs: ["en","es","zh"],
-    desc: "Free mental health education, peer support groups, and family advocacy.",
-    phone: "(408) 453-0400",
-    website: "https://namiscc.org",
-    hours: "Mon–Fri 9am–5pm"
-  },
-  {
-    id: "immigration-law-clinic",
-    name: "Santa Clara County Law Library Immigration Clinic",
-    cat: "immigration",
-    areas: ["downtown"],
-    langs: ["en","es"],
-    desc: "Free legal consultations for immigration matters including DACA, asylum, and naturalization.",
-    phone: "(408) 299-3567",
-    website: "https://www.sccll.org",
-    hours: "Wed 10am–12pm (walk-in)"
-  },
-  {
-    id: "ilrc",
-    name: "Immigrant Legal Resource Center – Bay Area",
-    cat: "immigration",
-    areas: ["downtown","east"],
-    langs: ["en","es","vi","zh"],
-    desc: "Know-your-rights workshops, legal screenings, and referrals for immigrants regardless of status.",
-    phone: "(415) 255-9499",
-    website: "https://www.ilrc.org",
-    hours: "Mon–Fri 9am–5pm"
-  },
-  {
-    id: "first5-scc",
-    name: "First 5 Santa Clara County",
-    cat: "family",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es","vi","zh"],
-    desc: "Resources for children 0–5: early learning, parenting classes, and family support programs.",
-    phone: "(408) 374-3970",
-    website: "https://first5scc.org",
-    hours: "Mon–Fri 8am–5pm"
-  },
-  {
-    id: "la-raza-services",
-    name: "La Raza Community Resource Center",
-    cat: "family",
-    areas: ["east"],
-    langs: ["en","es"],
-    desc: "Bilingual social services including youth programs, parenting support, and housing navigation.",
-    phone: "(408) 279-5230",
-    website: "https://www.larazacrc.org",
-    hours: "Mon–Fri 9am–5pm"
-  },
-  {
-    id: "wvcs",
-    name: "WomenÃ¢â‚¬â„¢s Violence Comprehensive Support (WVCS)",
-    cat: "safety",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es"],
-    desc: "Confidential shelter, hotline, legal advocacy, and counseling for survivors of domestic violence.",
-    phone: "(408) 279-2962",
-    website: "https://www.nu-wayinc.org",
-    hours: "24/7 hotline"
-  },
-  {
-    id: "asian-americans-dv",
-    name: "Asian Americans for Community Involvement — DV Program",
-    cat: "safety",
-    areas: ["east","downtown"],
-    langs: ["en","zh","vi"],
-    desc: "Culturally sensitive domestic violence counseling, shelter referrals, and legal services.",
-    phone: "(408) 975-2730",
-    website: "https://www.aaci.org",
-    hours: "Mon–Fri 9am–5pm"
-  },
-  {
-    id: "scc-aging",
-    name: "County of Santa Clara Aging and Adult Services",
-    cat: "seniors",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es","vi","zh"],
-    desc: "In-home support, Meals on Wheels, caregiver resources, and adult protective services.",
-    phone: "(408) 975-4900",
-    website: "https://www.sccgov.org/aas",
-    hours: "Mon–Fri 8am–5pm"
-  },
-  {
-    id: "outreach-seniors",
-    name: "Outreach & Escort Senior Transportation",
-    cat: "seniors",
-    areas: ["downtown","east","south","west","north"],
-    langs: ["en","es"],
-    desc: "Subsidized rides for seniors and people with disabilities to medical appointments and errands.",
-    phone: "(408) 295-0400",
-    website: "https://outreachinc.com",
-    hours: "Mon–Fri 7am–6pm"
-  }
+
+  // ── FOOD ──────────────────────────────────────────────────────────
+  { id:"second-harvest", name:"Second Harvest of Silicon Valley", cat:"food", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Free food distributions at 300+ sites across Santa Clara & San Mateo counties. No ID required, no income verification.", phone:"(408) 266-8866", website:"https://www.shfb.org", hours:"Multiple sites daily — check website for schedule" },
+  { id:"sacred-heart", name:"Sacred Heart Community Service", cat:"food", areas:["downtown","south"], langs:["en","es"], desc:"Emergency food pantry, grocery distribution, and holiday food baskets. Also offers utility & rent assistance.", phone:"(408) 278-2160", website:"https://sacredheartcs.org", hours:"Mon–Fri 9am–5pm; food pantry Tue & Thu 9am–12pm" },
+  { id:"loaves-fishes", name:"Loaves & Fishes Family Kitchen", cat:"food", areas:["downtown"], langs:["en","es"], desc:"Free hot meals served daily downtown. No questions asked, open to all.", phone:"(408) 292-3663", website:"https://www.loavesfishes.org", hours:"Daily lunch service 11:30am–1pm" },
+  { id:"catholic-charities-food", name:"Catholic Charities – Emergency Food", cat:"food", areas:["downtown","east","south"], langs:["en","es"], desc:"Emergency food pantry and grocery vouchers for low-income individuals and families.", phone:"(408) 944-0567", website:"https://catholiccharitiesscc.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"veggielution", name:"Veggielution Community Farm", cat:"food", areas:["east"], langs:["en","es"], desc:"Community farm in Emma Prusch Park offering fresh produce, gleaning programs, and food justice education.", phone:"(408) 753-2227", website:"https://veggielution.org", hours:"Wed 4pm–7pm; Sat 9am–12pm (seasonal)" },
+  { id:"salvation-army-food", name:"Salvation Army – SJ Food Pantry", cat:"food", areas:["downtown","south"], langs:["en","es"], desc:"Emergency food boxes, holiday meals, and food vouchers. Distribution multiple days per week.", phone:"(408) 282-1165", website:"https://www.salvationarmyusa.org", hours:"Mon–Fri 9am–11am" },
+  { id:"west-valley-food", name:"West Valley Community Services – Food Pantry", cat:"food", areas:["west"], langs:["en","es"], desc:"Weekly food distributions and emergency food boxes for West SJ and Santa Clara residents.", phone:"(408) 255-8033", website:"https://www.wvcommunityservices.org", hours:"Tue & Thu 10am–1pm" },
+  { id:"cityteam-food", name:"CityTeam San José – Meals & Food Pantry", cat:"food", areas:["downtown"], langs:["en","es"], desc:"Free dinners nightly, food pantry for families, and emergency grocery boxes.", phone:"(408) 232-5600", website:"https://www.cityteam.org/san-jose", hours:"Dinner Mon–Sat 5:30pm; pantry varies" },
+  { id:"aaci-food", name:"AACI – Community Food Pantry", cat:"food", areas:["east","downtown"], langs:["en","zh","vi"], desc:"Culturally specific food pantry serving Asian-American communities with familiar staples and ingredients.", phone:"(408) 975-2730", website:"https://www.aaci.org", hours:"Tue & Thu 10am–12pm" },
+  { id:"sobrato-pantry", name:"Sobrato High School Family Resource Center Pantry", cat:"food", areas:["east"], langs:["en","es"], desc:"Free food distribution open to the Morgan Hill/East SJ community every week, no appointment needed.", phone:"(408) 201-6100", website:"https://www.mhusd.org", hours:"Fri 3pm–5pm" },
+  { id:"san-jose-food-bank", name:"San José Food Bank (United Way)", cat:"food", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Partner network of food distribution sites across SJ. Connects residents to nearest pantry by address.", phone:"2-1-1", website:"https://www.uwba.org", hours:"Call 211 for nearest site" },
+  { id:"sj-mfoodtruck", name:"Mobile Food Pantry – SCC Social Services", cat:"food", areas:["east","south","north"], langs:["en","es","vi"], desc:"County mobile pantry brings free groceries directly to underserved neighborhoods. Schedule changes monthly.", phone:"(408) 755-7100", website:"https://www.sccgov.org/ssa", hours:"Check county site for monthly schedule" },
+
+  // ── HOUSING ───────────────────────────────────────────────────────
+  { id:"homefirst", name:"HomeFirst Services", cat:"housing", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Largest provider of homeless services in Santa Clara County. Emergency shelter, transitional housing, rapid rehousing, and permanent supportive housing.", phone:"(408) 539-2100", website:"https://homefirstscc.org", hours:"24/7 crisis line; offices Mon–Fri 8am–5pm" },
+  { id:"ehc", name:"EHC LifeBuilders", cat:"housing", areas:["downtown","east","south"], langs:["en","es"], desc:"Emergency shelters, transitional housing, and community services for families and youth experiencing homelessness.", phone:"(408) 539-2100", website:"https://ehclifebuilders.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"lifemoves", name:"LifeMoves", cat:"housing", areas:["downtown","south","west"], langs:["en","es"], desc:"Rapid rehousing, emergency shelter, and supportive services for families and individuals. Multiple SJ-area sites.", phone:"(650) 685-5880", website:"https://lifemoves.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"downtown-streets", name:"Downtown Streets Team", cat:"housing", areas:["downtown"], langs:["en"], desc:"Empowers unhoused neighbors through paid work experience, case management, and a clear path to permanent housing.", phone:"(408) 971-7000", website:"https://www.streetsteam.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"bwc-housing", name:"Bill Wilson Center – Emergency & Transitional Housing", cat:"housing", areas:["downtown","east","north"], langs:["en","es"], desc:"Emergency shelter and transitional housing for youth ages 18–25 and families. Wraparound services included.", phone:"(408) 243-0222", website:"https://billwilsoncenter.org", hours:"24/7 crisis line" },
+  { id:"path", name:"PATH (People Assisting the Homeless)", cat:"housing", areas:["downtown","east","south"], langs:["en","es"], desc:"Street outreach, emergency housing, and supportive housing for chronically homeless adults.", phone:"(408) 583-7284", website:"https://epath.org", hours:"Mon–Fri 8am–5pm; outreach 24/7" },
+  { id:"destination-home", name:"Destination: Home", cat:"housing", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Coordinates SJ's homeless response system. Connects residents to available emergency and permanent housing.", phone:"(408) 540-5640", website:"https://destinationhomesv.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"svcs-housing", name:"Silicon Valley Community Services (SVCS)", cat:"housing", areas:["east","south","north"], langs:["en","es","vi","zh"], desc:"Rent assistance, housing navigation, and utility support for low-income families in East and South SJ.", phone:"(408) 272-7377", website:"https://svcs.ngo", hours:"Mon–Fri 9am–5pm" },
+  { id:"housing-trust", name:"Housing Trust Silicon Valley", cat:"housing", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Down payment assistance and affordable homeownership loans for income-qualified first-time buyers in SCC.", phone:"(408) 436-3450", website:"https://housingtrustsv.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"habitat-scc", name:"Habitat for Humanity – Silicon Valley", cat:"housing", areas:["east","south"], langs:["en","es"], desc:"Affordable homeownership construction, critical home repairs, and neighborhood revitalization in low-income SJ communities.", phone:"(408) 510-0100", website:"https://www.habitatsv.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"project-sentinel", name:"Project Sentinel – Tenant Rights", cat:"housing", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Free housing counseling, tenant rights education, and mediation between landlords and tenants.", phone:"(408) 720-9888", website:"https://www.housing.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"sj-housing-dept", name:"City of SJ – Housing Department / Rental Assistance", cat:"housing", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Emergency rental assistance, eviction prevention, and housing stability programs for SJ renters.", phone:"(408) 975-4480", website:"https://www.sanjoseca.gov/housing", hours:"Mon–Fri 8am–5pm" },
+
+  // ── HEALTH ────────────────────────────────────────────────────────
+  { id:"valley-health", name:"Valley Health Centers (VMC)", cat:"health", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Low-cost primary care, dental, and vision clinics countywide. Serves uninsured and Medi-Cal patients on sliding-fee scale.", phone:"(408) 729-2028", website:"https://www.valleymedical.org/vhc", hours:"Mon–Fri 8am–5pm; urgent care varies" },
+  { id:"gardner-health", name:"Gardner Health Services", cat:"health", areas:["east","south"], langs:["en","es","vi"], desc:"Federally Qualified Health Center (FQHC) offering primary care, dental, behavioral health, and OB/GYN. Sliding-fee scale.", phone:"(408) 457-7100", website:"https://gardnerhealthservices.org", hours:"Mon–Fri 8am–6pm; Sat 9am–2pm" },
+  { id:"aaci-health", name:"AACI Health Center", cat:"health", areas:["east","downtown"], langs:["en","zh","vi","es"], desc:"Culturally responsive primary care, mental health, dental, and cancer screening for low-income and Asian-American residents.", phone:"(408) 975-2730", website:"https://www.aaci.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"ppmm", name:"Planned Parenthood Mar Monte – SJ", cat:"health", areas:["downtown","east","west"], langs:["en","es"], desc:"Reproductive healthcare, STI testing, birth control, and gender-affirming care. Sliding-scale fees; Medi-Cal accepted.", phone:"(408) 287-7526", website:"https://www.plannedparenthood.org/planned-parenthood-mar-monte", hours:"Mon–Sat 8am–5pm" },
+  { id:"community-health-partnership", name:"Community Health Partnership", cat:"health", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Connects uninsured residents to free or low-cost clinics, Medi-Cal enrollment, and insurance navigation.", phone:"(408) 272-5863", website:"https://www.chpcares.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"scc-public-health", name:"SCC Public Health – Immunizations & Clinics", cat:"health", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Free and low-cost immunizations, HIV testing, TB screening, and sexual health services at county clinics.", phone:"(408) 885-4214", website:"https://www.sccgov.org/publichealth", hours:"Mon–Fri 8am–5pm" },
+  { id:"vmc-er", name:"Santa Clara Valley Medical Center (VMC)", cat:"health", areas:["west"], langs:["en","es","vi","zh"], desc:"County hospital with 24/7 emergency care, trauma center, and specialty services. Serves all regardless of ability to pay.", phone:"(408) 885-5000", website:"https://www.scvmc.org", hours:"24/7 emergency department" },
+  { id:"samaritan-house", name:"Samaritan House – Medical Clinic", cat:"health", areas:["south","downtown"], langs:["en","es"], desc:"Free medical, dental, and vision clinic for low-income uninsured residents of South Santa Clara County.", phone:"(650) 347-3648", website:"https://www.samaritanhousesv.org", hours:"Tue & Thu evenings; call for appointment" },
+  { id:"wvcs-health", name:"West Valley Community Services – Health Navigation", cat:"health", areas:["west"], langs:["en","es"], desc:"Helps West SJ residents enroll in Medi-Cal, find low-cost providers, and navigate prescription assistance programs.", phone:"(408) 255-8033", website:"https://www.wvcommunityservices.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"healthmobile", name:"HealthMobile SCC – Mobile Clinic", cat:"health", areas:["east","south","north"], langs:["en","es","vi"], desc:"Free mobile health clinic bringing primary care, dental, and vaccines to underserved neighborhoods and schools.", phone:"(408) 885-5050", website:"https://www.sccgov.org/publichealth", hours:"Rotating schedule — call to confirm location" },
+  { id:"sj-free-clinic", name:"San José Free Clinic", cat:"health", areas:["downtown"], langs:["en","es"], desc:"Free outpatient medical care for uninsured adults including labs, prescriptions, and specialist referrals.", phone:"(408) 297-3060", website:"https://sjfreeclinic.org", hours:"Wed & Sat 9am–1pm (walk-in)" },
+
+  // ── MENTAL HEALTH ─────────────────────────────────────────────────
+  { id:"momentum", name:"Momentum for Mental Health", cat:"mental", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Outpatient counseling, psychiatric medication management, crisis services, and peer support. Sliding-scale fees.", phone:"(408) 559-5600", website:"https://www.momentumformh.org", hours:"Mon–Fri 8:30am–5pm; 24/7 crisis line" },
+  { id:"nami-scc", name:"NAMI Santa Clara County", cat:"mental", areas:["downtown","east","west"], langs:["en","es","zh"], desc:"Free mental health education classes (NAMI Family-to-Family, Peer-to-Peer), support groups, and advocacy.", phone:"(408) 453-0400", website:"https://namiscc.org", hours:"Mon–Fri 9am–5pm; support groups weekly" },
+  { id:"uplift-family", name:"Uplift Family Services", cat:"mental", areas:["east","south","north"], langs:["en","es","vi"], desc:"Children's mental health, family therapy, intensive home-based services, and crisis intervention for youth.", phone:"(408) 281-4252", website:"https://upliftfs.org", hours:"Mon–Fri 8am–5pm; 24/7 crisis" },
+  { id:"emq", name:"EMQ FamiliesFirst", cat:"mental", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"Mental health services for children and families, including foster care support, residential treatment, and community-based therapy.", phone:"(408) 379-3200", website:"https://emqff.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"pacific-clinics", name:"Pacific Clinics – SJ", cat:"mental", areas:["downtown","east","south"], langs:["en","es","vi","zh"], desc:"Community mental health center offering individual, group, and family therapy on a sliding-scale basis. Medi-Cal accepted.", phone:"(408) 288-5010", website:"https://www.pacificclinics.org", hours:"Mon–Fri 8am–6pm" },
+  { id:"bill-wilson-mh", name:"Bill Wilson Center – Behavioral Health", cat:"mental", areas:["downtown","north"], langs:["en","es"], desc:"Mental health counseling and substance use treatment for youth and young adults ages 12–25.", phone:"(408) 243-0222", website:"https://billwilsoncenter.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"sun-street", name:"Sun Street Centers", cat:"mental", areas:["downtown","east"], langs:["en","es"], desc:"Outpatient substance use treatment, dual-diagnosis mental health services, and recovery support groups.", phone:"(408) 293-3000", website:"https://www.sunstreetcenters.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"alum-rock-counseling", name:"Alum Rock Counseling Center", cat:"mental", areas:["east"], langs:["en","es"], desc:"Low-cost individual and family therapy in the heart of East SJ. Bilingual clinicians available.", phone:"(408) 272-4996", website:"https://www.alrcc.org", hours:"Mon–Fri 9am–6pm" },
+  { id:"scc-crisis", name:"SCC Behavioral Health Crisis Line", cat:"mental", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"24/7 mental health crisis line for Santa Clara County residents. Connects to mobile crisis teams and stabilization services.", phone:"(800) 704-0900", website:"https://www.sccgov.org/bhsd", hours:"24/7 — call anytime" },
+  { id:"wellness-center-sjsu", name:"SJSU Counseling & Psychological Services", cat:"mental", areas:["downtown"], langs:["en","es","zh"], desc:"Free counseling for SJSU students including individual therapy, group therapy, crisis intervention, and workshops.", phone:"(408) 924-5910", website:"https://www.sjsu.edu/counseling", hours:"Mon–Fri 8am–5pm" },
+  { id:"va-mental-health", name:"VA Palo Alto – SJ Community Clinic (Mental Health)", cat:"mental", areas:["downtown"], langs:["en","es"], desc:"Free mental health care for eligible veterans including PTSD treatment, substance use counseling, and crisis support.", phone:"(650) 493-5000", website:"https://www.va.gov/palo-alto-health-care", hours:"Mon–Fri 8am–4:30pm" },
+
+  // ── IMMIGRATION & LEGAL ───────────────────────────────────────────
+  { id:"siren", name:"SIREN – Services, Immigrant Rights & Education Network", cat:"immigration", areas:["downtown","east","south"], langs:["en","es","vi","zh"], desc:"Know-your-rights workshops, DACA renewal help, citizenship prep, deportation defense referrals, and community organizing.", phone:"(408) 453-3003", website:"https://www.siren-bayarea.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"law-foundation", name:"Law Foundation of Silicon Valley", cat:"immigration", areas:["downtown","east","south","west","north"], langs:["en","es","vi"], desc:"Free legal services for low-income residents including immigration, housing, education, and healthcare rights.", phone:"(408) 280-2424", website:"https://www.lawfoundation.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"ilrc", name:"Immigrant Legal Resource Center (ILRC)", cat:"immigration", areas:["downtown","east"], langs:["en","es","vi","zh"], desc:"Legal screenings, DACA, TPS, asylum, U/T visas, citizenship, and immigration policy education.", phone:"(415) 255-9499", website:"https://www.ilrc.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"catholic-legal", name:"Catholic Legal Immigration Network (CLINIC) – SCC", cat:"immigration", areas:["downtown","east"], langs:["en","es"], desc:"Low-cost immigration legal services including green card, naturalization, family petitions, and removal defense.", phone:"(408) 944-0567", website:"https://cliniclegal.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"somos-mayfair", name:"Somos Mayfair", cat:"immigration", areas:["east"], langs:["en","es"], desc:"Community organizing, family support, and resource navigation for Latino immigrants in the Mayfair neighborhood.", phone:"(408) 923-5444", website:"https://www.somosmayfair.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"bay-area-legal", name:"Bay Area Legal Aid – SJ", cat:"immigration", areas:["downtown","east","south"], langs:["en","es","vi","zh"], desc:"Free civil legal services including immigration, housing, public benefits, and domestic violence for low-income residents.", phone:"(415) 982-1300", website:"https://baylegal.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"sccll-clinic", name:"SCC Law Library – Free Immigration Clinic", cat:"immigration", areas:["downtown"], langs:["en","es"], desc:"Free walk-in legal consultations with volunteer attorneys. Covers DACA, green cards, naturalization, and asylum.", phone:"(408) 299-3567", website:"https://www.sccll.org", hours:"Wed 10am–12pm (walk-in)" },
+  { id:"asian-law", name:"Asian Law Alliance", cat:"immigration", areas:["downtown","east"], langs:["en","zh","vi"], desc:"Free legal aid for low-income Asian-Pacific Islander residents: immigration, tenants' rights, and employment law.", phone:"(408) 287-9710", website:"https://asianlawalliance.org", hours:"Mon–Fri 9am–5pm; walk-in clinics Tue" },
+  { id:"unidad-latina", name:"Unidad Latina en Acción", cat:"immigration", areas:["east","downtown"], langs:["en","es"], desc:"Immigrant rights education, rapid-response deportation defense network, and workers' rights support.", phone:"(408) 317-3000", website:"https://unidadlatina.org", hours:"Mon–Fri 9am–5pm" },
+
+  // ── FAMILY & KIDS ─────────────────────────────────────────────────
+  { id:"first5-scc", name:"First 5 Santa Clara County", cat:"family", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Free parenting classes, early childhood education, developmental screenings, and family resource centers for children 0–5.", phone:"(408) 374-3970", website:"https://first5scc.org", hours:"Mon–Fri 8am–5pm" },
+  { id:"la-raza", name:"La Raza Community Resource Center", cat:"family", areas:["east"], langs:["en","es"], desc:"Bilingual family support, youth programs, gang prevention, parenting classes, and housing navigation in East SJ.", phone:"(408) 279-5230", website:"https://www.larazacrc.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"bwc-youth", name:"Bill Wilson Center – Youth Services", cat:"family", areas:["downtown","north"], langs:["en","es"], desc:"Runaway & homeless youth shelter, foster care support, independent living skills, and youth mental health programs.", phone:"(408) 243-0222", website:"https://billwilsoncenter.org", hours:"24/7 crisis shelter; offices Mon–Fri 8am–5pm" },
+  { id:"scc-childrens-shelter", name:"SCC Children's Shelter", cat:"family", areas:["downtown"], langs:["en","es","vi"], desc:"Emergency shelter for children in crisis, including abuse and neglect. Operated by the county. Referral-based.", phone:"(408) 755-7550", website:"https://www.sccgov.org/ssa", hours:"24/7" },
+  { id:"child-advocates", name:"Child Advocates of Silicon Valley", cat:"family", areas:["downtown","east","south","west","north"], langs:["en","es"], desc:"CASA volunteer program for foster youth, plus legal advocacy, mentorship, and educational support.", phone:"(408) 288-0400", website:"https://childadvocates.net", hours:"Mon–Fri 9am–5pm" },
+  { id:"parents-helping", name:"Parents Helping Parents", cat:"family", areas:["downtown","east","west","north"], langs:["en","es","vi","zh"], desc:"Support for families of children with disabilities: resource navigation, advocacy training, and parent support groups.", phone:"(408) 727-5775", website:"https://www.php.com", hours:"Mon–Fri 8:30am–5pm" },
+  { id:"gardner-children", name:"Gardner Children's Center", cat:"family", areas:["east","south"], langs:["en","es"], desc:"High-quality, subsidized early childhood education and childcare for low-income working families in East SJ.", phone:"(408) 251-1540", website:"https://www.gardnerchildrenscenter.org", hours:"Mon–Fri 7am–6pm" },
+  { id:"ywca-childcare", name:"YWCA Silicon Valley – Early Learning", cat:"family", areas:["downtown","west"], langs:["en","es"], desc:"Affordable early childhood education, after-school programs, and childcare subsidies for working parents.", phone:"(408) 295-4011", website:"https://www.ywca-sv.org", hours:"Mon–Fri 7am–6pm" },
+  { id:"teen-force", name:"TeenForce", cat:"family", areas:["east","downtown","south"], langs:["en","es"], desc:"Youth employment, mentorship, career readiness, and social-emotional learning programs for teens in underserved SJ communities.", phone:"(408) 288-5010", website:"https://teenforce.org", hours:"Mon–Fri 9am–5pm" },
+  { id:"sunnyvale-community-services", name:"SJ Community Action Project – Head Start", cat:"family", areas:["east","south","north"], langs:["en","es","vi","zh"], desc:"Free Head Start and Early Head Start preschool programs for income-qualifying families, with health and family services.", phone:"(408) 926-8080", website:"https://www.sjcap.org", hours:"Mon–Fri 8am–5pm" },
+
+  // ── DOMESTIC VIOLENCE & SAFETY ────────────────────────────────────
+  { id:"next-door", name:"Next Door Solutions to Domestic Violence", cat:"safety", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"24/7 crisis hotline, emergency shelter, legal advocacy, counseling, and transitional housing for DV survivors.", phone:"(408) 279-2962", website:"https://nextdoor-solutions.org", hours:"24/7 hotline; offices Mon–Fri 9am–5pm" },
+  { id:"aaci-dv", name:"AACI – Domestic Violence Program", cat:"safety", areas:["east","downtown"], langs:["en","zh","vi"], desc:"Culturally sensitive DV counseling, shelter referrals, safety planning, and legal services for Asian-American survivors.", phone:"(408) 975-2730", website:"https://www.aaci.org", hours:"Mon–Fri 9am–5pm; crisis line 24/7" },
+  { id:"ywca-dv", name:"YWCA Silicon Valley – DV Services", cat:"safety", areas:["downtown","west"], langs:["en","es"], desc:"Emergency shelter, individual counseling, support groups, and economic empowerment for domestic violence survivors.", phone:"(408) 295-4011", website:"https://www.ywca-sv.org", hours:"24/7 shelter; services Mon–Fri 9am–5pm" },
+  { id:"support-network", name:"Support Network for Battered Women", cat:"safety", areas:["west","south"], langs:["en","es"], desc:"Emergency shelter, transitional housing, legal advocacy, and counseling for survivors in South Santa Clara County.", phone:"(408) 279-2962", website:"https://www.supportnetwork.org", hours:"24/7 hotline" },
+  { id:"law-foundation-dv", name:"Law Foundation – DV Legal Services", cat:"safety", areas:["downtown","east","south","west","north"], langs:["en","es","vi"], desc:"Free legal help for DV survivors: restraining orders, divorce, child custody, and immigration relief (VAWA, U-Visa).", phone:"(408) 280-2424", website:"https://www.lawfoundation.org/domestic-violence", hours:"Mon–Fri 9am–5pm" },
+  { id:"district-attorney-dv", name:"SCC District Attorney – Victim Services", cat:"safety", areas:["downtown"], langs:["en","es","vi","zh"], desc:"Crime victim compensation, safety planning, court accompaniment, and restraining order help for assault and DV survivors.", phone:"(408) 792-2930", website:"https://www.sccgov.org/da", hours:"Mon–Fri 8am–5pm" },
+
+  // ── SENIORS ────────────────────────────────────────────────────────
+  { id:"scc-aging", name:"SCC Aging & Adult Services", cat:"seniors", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"In-Home Supportive Services (IHSS), Meals on Wheels, caregiver support, adult protective services, and senior center programs.", phone:"(408) 975-4900", website:"https://www.sccgov.org/aas", hours:"Mon–Fri 8am–5pm" },
+  { id:"outreach-escort", name:"Outreach & Escort – Senior Transportation", cat:"seniors", areas:["downtown","east","south","west","north"], langs:["en","es","vi"], desc:"Subsidized rides for seniors and adults with disabilities to medical appointments, grocery stores, and community activities.", phone:"(408) 295-0400", website:"https://outreachinc.com", hours:"Mon–Fri 7am–6pm" },
+  { id:"sala", name:"Senior Adults Legal Assistance (SALA)", cat:"seniors", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Free civil legal services for adults 60+ in Santa Clara County: housing, benefits, consumer fraud, advance directives.", phone:"(408) 295-5991", website:"https://www.sala.org", hours:"Mon–Fri 9am–12pm (walk-in); Mon–Thu 1pm–4pm" },
+  { id:"sourcewise", name:"Sourcewise (Area Agency on Aging)", cat:"seniors", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Coordinates senior services countywide: case management, caregiver respite, nutrition programs, benefits counseling, and more.", phone:"(408) 350-3200", website:"https://mysourcewise.com", hours:"Mon–Fri 8am–5pm" },
+  { id:"scan-health", name:"SCAN Health & Social Services", cat:"seniors", areas:["downtown","east"], langs:["en","es","zh","vi"], desc:"Health insurance counseling, Medicare/Medi-Cal enrollment help, and social support programs for seniors.", phone:"(408) 926-8080", website:"https://www.scanhealthplan.com", hours:"Mon–Fri 8am–5pm" },
+  { id:"sj-senior-centers", name:"City of SJ – Senior Centers Network", cat:"seniors", areas:["downtown","east","south","west","north"], langs:["en","es","vi","zh"], desc:"Eight senior centers across SJ offering meals, fitness, arts, social activities, health screenings, and transportation coordination.", phone:"(408) 535-3500", website:"https://www.sanjoseca.gov/seniors", hours:"Varies by location; generally Mon–Fri 8am–5pm" },
+  { id:"aarp-sj", name:"AARP San José Chapter – Tax Aid & Benefits", cat:"seniors", areas:["downtown","east","west"], langs:["en","es","zh"], desc:"Free tax preparation, Medicare counseling, benefits enrollment, and fraud prevention for adults 50+.", phone:"(888) 687-2277", website:"https://www.aarp.org/sanjose", hours:"Tax season: Feb–Apr; helpline year-round" },
+  { id:"va-seniors", name:"VA Palo Alto – SJ Clinic (Senior Veterans)", cat:"seniors", areas:["downtown"], langs:["en","es"], desc:"Comprehensive healthcare, home-based care, geriatric services, and caregiver support for eligible senior veterans.", phone:"(650) 493-5000", website:"https://www.va.gov/palo-alto-health-care", hours:"Mon–Fri 8am–4:30pm" }
+
 ];
 
-// ── State ──────────────────────────────────────────────────────────
-let activeNeed = "";
-let activeArea = "";
-let activeLang = "";
-let activeCat  = "";
+// ── State
+let activeNeed="", activeArea="", activeLang="", activeCat="";
 
-// ── GoatCounter helper ─────────────────────────────────────────────
+// ── GoatCounter helper
 function gcTrack(path, title) {
-  if (window.goatcounter && window.goatcounter.count) {
+  if (window.goatcounter && window.goatcounter.count)
     window.goatcounter.count({ path, title });
-  }
 }
 
-// ── Render ─────────────────────────────────────────────────────────
+// ── Badge label
+function badgeLabel(cat) {
+  return {food:"Food",housing:"Housing",health:"Health",mental:"Mental Health",immigration:"Immigration",family:"Family",safety:"DV / Safety",seniors:"Seniors"}[cat] || cat;
+}
+
+// ── Lang display
+function langLabel(l) {
+  return {en:"EN",es:"ES",vi:"VI",zh:"中"}[l] || l.toUpperCase();
+}
+
+// ── Render
 function render(resources) {
   const grid = document.getElementById("results-grid");
+  document.getElementById("results-count").textContent = resources.length
+    ? `${resources.length} resource${resources.length===1?'':'s'} found`
+    : "";
   if (!resources.length) {
-    grid.innerHTML = `<div class="empty-state">
-      <p>No matches with these filters. Try fewer filters, or call <strong>211</strong> (free, 24/7, multilingual) — they can help directly.</p>
-    </div>`;
+    grid.innerHTML = `<div class="empty-state"><p>No matches with these filters. Try fewer filters, or call <strong>211</strong> (free, 24/7, multilingual) — they can help directly.</p></div>`;
     return;
   }
   grid.innerHTML = resources.map(r => `
     <div class="card" id="card-${r.id}">
       <div class="card-header">
         <span class="card-name">${r.name}</span>
-        <span class="badge badge-${r.cat}">${r.cat === 'mental' ? 'Mental Health' : r.cat === 'safety' ? 'DV / Safety' : r.cat.charAt(0).toUpperCase()+r.cat.slice(1)}</span>
+        <span class="badge badge-${r.cat}">${badgeLabel(r.cat)}</span>
       </div>
       <p class="card-desc">${r.desc}</p>
       <div class="card-meta">
@@ -608,9 +425,10 @@ function render(resources) {
         ${r.phone ? `<span>📞 ${r.phone}</span>` : ''}
       </div>
       <div class="card-actions">
-        ${r.phone ? `<a class="card-link phone" href="tel:${r.phone.replace(/\D/g,'')}" onclick="gcTrack('resource-call/${r.id}','Call: ${r.name}')">Call</a>` : ''}
+        ${r.phone ? `<a class="card-link phone" href="tel:${r.phone.replace(/\D/g,'')}" onclick="gcTrack('resource-call/${r.id}','Call: ${r.name}')">📞 Call</a>` : ''}
         ${r.website ? `<a class="card-link" href="${r.website}" target="_blank" rel="noopener" onclick="gcTrack('resource-visit/${r.id}','Visit: ${r.name}')">Website →</a>` : ''}
-        <button class="card-link" onclick="openReportFor('${r.name}')" style="background:none;cursor:pointer;">Report error</button>
+        <span class="card-langs">${r.langs.map(langLabel).join(' · ')}</span>
+        <button class="card-link" onclick="openReportFor('${r.name.replace(/'/g,"\\'")}')">Report error</button>
       </div>
     </div>
   `).join('');
@@ -621,7 +439,7 @@ function getFiltered() {
     if (activeNeed && r.cat !== activeNeed) return false;
     if (activeArea && !r.areas.includes(activeArea)) return false;
     if (activeLang && !r.langs.includes(activeLang)) return false;
-    if (activeCat  && r.cat !== activeCat) return false;
+    if (activeCat && r.cat !== activeCat) return false;
     return true;
   });
 }
@@ -630,94 +448,76 @@ function applyFilters() {
   activeNeed = document.getElementById('sel-need').value;
   activeArea = document.getElementById('sel-area').value;
   activeLang = document.getElementById('sel-lang').value;
-  // sync tabs
-  document.querySelectorAll('.tab').forEach(t => {
-    t.classList.toggle('active', t.dataset.cat === (activeNeed || ''));
-  });
   activeCat = activeNeed;
-  const results = getFiltered();
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.cat === (activeNeed||'')));
   gcTrack(`filter/need=${activeNeed}&area=${activeArea}&lang=${activeLang}`, 'Filter applied');
-  render(results);
-  document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  render(getFiltered());
+  document.getElementById('results-section').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
 function clearFilters() {
-  activeNeed = ""; activeArea = ""; activeLang = ""; activeCat = "";
-  document.getElementById('sel-need').value = '';
-  document.getElementById('sel-area').value = '';
-  document.getElementById('sel-lang').value = '';
-  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.cat === ''));
+  activeNeed=""; activeArea=""; activeLang=""; activeCat="";
+  ['sel-need','sel-area','sel-lang'].forEach(id => document.getElementById(id).value='');
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.cat===''));
   render(RESOURCES);
 }
 
 function filterTab(el, cat) {
-  activeCat = cat;
-  activeNeed = cat;
+  activeCat = cat; activeNeed = cat;
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   el.classList.add('active');
-  gcTrack(`tab/${cat || 'all'}`, `Tab: ${cat || 'All'}`);
+  gcTrack(`tab/${cat||'all'}`, `Tab: ${cat||'All'}`);
   render(getFiltered());
 }
 
-// ── Modal ──────────────────────────────────────────────────────────
+// ── Modal
 function openModal() {
   document.getElementById('modal-overlay').classList.add('open');
-  gcTrack('error-report-open', 'Error report modal opened');
+  gcTrack('error-report-open','Error report modal opened');
 }
 function closeModal() {
   document.getElementById('modal-overlay').classList.remove('open');
-  document.getElementById('modal-form-body').style.display = '';
-  document.getElementById('form-success').style.display = 'none';
+  document.getElementById('modal-form-body').style.display='';
+  document.getElementById('form-success').style.display='none';
   document.getElementById('error-form').reset();
-  document.getElementById('form-err-msg').style.display = 'none';
+  document.getElementById('form-err-msg').style.display='none';
 }
 function openReportFor(name) {
   document.getElementById('err-resource').value = name;
   openModal();
 }
 document.getElementById('modal-overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('modal-overlay')) closeModal();
+  if (e.target===document.getElementById('modal-overlay')) closeModal();
 });
 
-// Formspree AJAX submit
 document.getElementById('error-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('[type=submit]');
-  btn.textContent = 'Sending…'; btn.disabled = true;
+  btn.textContent='Sending…'; btn.disabled=true;
   try {
-    const res = await fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this),
-      headers: { 'Accept': 'application/json' }
-    });
+    const res = await fetch(this.action, { method:'POST', body:new FormData(this), headers:{'Accept':'application/json'} });
     if (res.ok) {
-      document.getElementById('modal-form-body').style.display = 'none';
-      document.getElementById('form-success').style.display = 'block';
-      gcTrack('error-report-submitted', 'Error report submitted');
+      document.getElementById('modal-form-body').style.display='none';
+      document.getElementById('form-success').style.display='block';
+      gcTrack('error-report-submitted','Error report submitted');
     } else {
-      document.getElementById('form-err-msg').style.display = 'block';
-      btn.textContent = 'Send report'; btn.disabled = false;
+      document.getElementById('form-err-msg').style.display='block';
+      btn.textContent='Send report'; btn.disabled=false;
     }
   } catch {
-    document.getElementById('form-err-msg').style.display = 'block';
-    btn.textContent = 'Send report'; btn.disabled = false;
+    document.getElementById('form-err-msg').style.display='block';
+    btn.textContent='Send report'; btn.disabled=false;
   }
 });
 
-// ── Language toggle (stub — extend with i18n strings as needed) ───
 function setLang(lang) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase().startsWith(lang)));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.trim().toLowerCase().startsWith(lang==='en'?'eng':'esp')));
   gcTrack(`lang/${lang}`, `Language: ${lang}`);
 }
 
-// ── Initial render ─────────────────────────────────────────────────
+// ── Init
 render(RESOURCES);
-
-// Track page view with GoatCounter (already handled by the script tag, but explicit path for SPA use)
-window.addEventListener('load', () => {
-  gcTrack('/', 'SJ Care Connect – Home');
-});
+window.addEventListener('load', () => gcTrack('/','SJ Care Connect – Home'));
 </script>
-
 </body>
 </html>
