@@ -1,203 +1,293 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SJ Care Connect — Find help in San José</title>
-<meta name="description" content="A free, bilingual (English/Spanish) directory of San José resources for food, housing, healthcare, immigration, mental health, and family support. Answer 3 quick questions to find what you need." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A free, bilingual (English/Spanish) directory of San José resources for food, housing, healthcare, immigration, mental health, and family support." />
+  <meta property="og:title" content="SJ Care Connect — Find help in San José" />
+  <meta property="og:description" content="Free bilingual directory of SJ resources. 3 quick questions, real help." />
+  <meta property="og:type" content="website" />
+  <title>SJ Care Connect — Find help in San José</title>
 
-<!-- Open Graph / link previews -->
-<meta property="og:title" content="SJ Care Connect — Find help in San José" />
-<meta property="og:description" content="Free bilingual directory of SJ resources. 3 quick questions, real help." />
-<meta property="og:type" content="website" />
+  <!-- GoatCounter Analytics -->
+  <script data-goatcounter="https://ananyabvs.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-<!-- ====== ANALYTICS (GoatCounter) ======
-     Sign up at goatcounter.com, pick code "sjc-connect", then replace below. -->
-<script
-  data-goatcounter="https://sjc-connect.goatcounter.com/count"
-  async
-  src="//gc.zgo.at/count.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-<style>
-  :root {
-    --bg: #fafaf7;
-    --ink: #1c1c1c;
-    --muted: #6b6b6b;
-    --brand: #2f5d50;       /* deep teal — calm, trustworthy */
-    --brand-2: #c97b3c;     /* warm amber — accent, friendly */
-    --alert: #c0392b;
-    --card: #ffffff;
-    --line: #e6e3da;
-    --chip: #eef2ec;
-    --focus: #f1c40f;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased; line-height: 1.55; }
-  a { color: var(--brand); }
-  :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+  <style>
+    :root {
+      --teal:      #0d7a6e;
+      --teal-lt:   #e6f4f2;
+      --teal-mid:  #1a9b8c;
+      --amber:     #e8a020;
+      --amber-lt:  #fef6e4;
+      --red:       #c94040;
+      --red-lt:    #fdf0f0;
+      --ink:       #1a1f2e;
+      --ink-mid:   #3d4459;
+      --ink-soft:  #6b7280;
+      --border:    #dde3e0;
+      --bg:        #f7faf9;
+      --white:     #ffffff;
+      --radius:    12px;
+      --shadow:    0 2px 16px rgba(13,122,110,.10);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* Layout */
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
-  header.site {
-    padding: 18px 0; border-bottom: 1px solid var(--line); background: #fff;
-    position: sticky; top: 0; z-index: 50;
-  }
-  header.site .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .brand { font-weight: 800; font-size: 18px; letter-spacing: -0.01em; display: flex; align-items: center; gap: 8px; }
-  .brand .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--brand-2); display: inline-block; }
-  nav.lang button {
-    background: #fff; border: 1px solid var(--line); border-radius: 999px;
-    padding: 6px 12px; font-size: 13px; cursor: pointer; margin-left: 4px;
-  }
-  nav.lang button.active { background: var(--brand); color: #fff; border-color: var(--brand); }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+    }
 
-  /* Hero */
-  .hero { padding: 36px 0 8px; }
-  .hero h1 { font-size: clamp(28px, 4vw, 42px); line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.02em; }
-  .hero p.lede { font-size: 17px; color: var(--muted); max-width: 720px; margin: 0 0 22px; }
+    a { color: var(--teal); }
 
-  /* Triage */
-  .triage {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 22px; margin-bottom: 28px; box-shadow: 0 1px 0 rgba(0,0,0,0.02);
-  }
-  .triage h2 { margin: 0 0 6px; font-size: 18px; }
-  .triage p.sub { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
-  .qrow { display: grid; gap: 14px; grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .qrow { grid-template-columns: repeat(3, 1fr); } }
-  .qrow label { font-size: 13px; font-weight: 700; display: block; margin-bottom: 6px; color: #333; }
-  .qrow select {
-    width: 100%; padding: 11px 12px; border-radius: 10px;
-    border: 1px solid var(--line); background: #fff; font-size: 15px;
-  }
-  .triage .actions { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-  .btn {
-    padding: 11px 18px; border-radius: 10px; font-size: 15px; font-weight: 700;
-    cursor: pointer; border: 1px solid transparent;
-  }
-  .btn.primary { background: var(--brand); color: #fff; }
-  .btn.primary:hover { background: #244a40; }
-  .btn.ghost { background: #fff; color: var(--brand); border-color: var(--line); }
+    /* ── Skip link ── */
+    .skip { position: absolute; left:-9999px; top:4px; }
+    .skip:focus { left:16px; background:var(--teal); color:#fff; padding:6px 12px; border-radius:6px; z-index:999; }
 
-  /* Search bar */
-  .search {
-    display: flex; gap: 10px; margin-bottom: 18px; flex-wrap: wrap;
-  }
-  .search input {
-    flex: 1 1 240px; padding: 11px 14px; border: 1px solid var(--line);
-    border-radius: 10px; font-size: 15px; background: #fff;
-  }
+    /* ── Header ── */
+    header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--teal);
+      letter-spacing: -.01em;
+    }
+    .lang-btns { display:flex; gap:8px; }
+    .lang-btn {
+      font-size:.82rem; font-weight:500; padding:5px 14px;
+      border:1.5px solid var(--border); border-radius:20px;
+      background:transparent; cursor:pointer; color:var(--ink-mid);
+      transition: all .15s;
+    }
+    .lang-btn.active, .lang-btn:hover { border-color:var(--teal); color:var(--teal); background:var(--teal-lt); }
 
-  /* Chips */
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
-  .chip {
-    background: var(--chip); color: #2d4036; padding: 6px 12px; border-radius: 999px;
-    font-size: 13px; border: 1px solid transparent; cursor: pointer; user-select: none;
-  }
-  .chip.active { background: var(--brand); color: #fff; }
+    /* ── Main layout ── */
+    main { max-width: 860px; margin: 0 auto; padding: 40px 20px 120px; }
 
-  /* Results */
-  .results-meta { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
-  .grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
-  @media (min-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); } }
-  .card {
-    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
-    padding: 18px; display: flex; flex-direction: column; gap: 8px;
-  }
-  .card h3 { margin: 0; font-size: 16px; }
-  .card .cat { font-size: 12px; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
-  .card .desc { font-size: 14px; color: #333; }
-  .card .meta { font-size: 13px; color: var(--muted); }
-  .card .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-  .card .tag { background: var(--chip); font-size: 11px; padding: 3px 8px; border-radius: 999px; color: #2d4036; }
-  .card .actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
-  .card .actions a {
-    text-decoration: none; padding: 7px 12px; border-radius: 8px; font-size: 13px;
-    font-weight: 700; border: 1px solid var(--line); color: var(--brand); background: #fff;
-  }
-  .card .actions a.call { background: var(--brand); color: #fff; border-color: var(--brand); }
+    /* ── Hero ── */
+    .hero { text-align:center; margin-bottom: 40px; }
+    .hero h1 {
+      font-family:'DM Serif Display',serif;
+      font-size: clamp(2rem,5vw,2.8rem);
+      color: var(--ink);
+      line-height:1.2;
+      margin-bottom:12px;
+    }
+    .hero h1 span { color: var(--teal); }
+    .hero p { color:var(--ink-soft); font-size:1.05rem; max-width:520px; margin:0 auto; }
 
-  /* Empty state */
-  .empty { text-align: center; padding: 40px 20px; color: var(--muted); border: 1px dashed var(--line); border-radius: 14px; background: #fff; }
+    /* ── Filter card ── */
+    .filter-card {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+    .filter-card h2 {
+      font-family:'DM Serif Display',serif;
+      font-size:1.15rem;
+      margin-bottom:4px;
+    }
+    .filter-card .sub { font-size:.85rem; color:var(--ink-soft); margin-bottom:20px; }
+    .filter-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+    .filter-group label { display:block; font-size:.8rem; font-weight:600; color:var(--ink-mid); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; }
+    select {
+      width:100%; padding:10px 14px; border:1.5px solid var(--border);
+      border-radius:8px; font-family:inherit; font-size:.95rem;
+      background:var(--bg); color:var(--ink); cursor:pointer;
+      appearance:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat:no-repeat; background-position: right 12px center;
+    }
+    select:focus { outline:none; border-color:var(--teal); }
+    .filter-actions { display:flex; gap:10px; margin-top:20px; flex-wrap:wrap; }
+    .btn-primary {
+      background:var(--teal); color:#fff; border:none; padding:11px 26px;
+      border-radius:8px; font-family:inherit; font-size:.95rem; font-weight:500;
+      cursor:pointer; transition:background .15s;
+    }
+    .btn-primary:hover { background:var(--teal-mid); }
+    .btn-ghost {
+      background:transparent; color:var(--ink-soft); border:1.5px solid var(--border);
+      padding:11px 20px; border-radius:8px; font-family:inherit; font-size:.95rem;
+      cursor:pointer; transition:all .15s;
+    }
+    .btn-ghost:hover { border-color:var(--ink-soft); color:var(--ink); }
 
-  /* Footer */
-  footer.site { margin-top: 48px; padding: 24px 0 80px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
-  footer.site a { color: var(--brand); }
+    /* ── Category tabs ── */
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px; }
+    .tab {
+      padding:6px 16px; border-radius:20px; border:1.5px solid var(--border);
+      background:var(--white); font-size:.84rem; font-weight:500; cursor:pointer;
+      color:var(--ink-mid); transition:all .15s;
+      /* GoatCounter click tracking via data attributes */
+    }
+    .tab.active, .tab:hover { background:var(--teal); border-color:var(--teal); color:#fff; }
 
-  /* Skip link */
-  .skip { position: absolute; left: -9999px; }
-  .skip:focus { left: 12px; top: 12px; background: #fff; padding: 8px 12px; border: 2px solid var(--brand); border-radius: 6px; z-index: 100; }
+    /* ── Results ── */
+    #results-section h2 {
+      font-family:'DM Serif Display',serif;
+      font-size:1.2rem;
+      margin-bottom:14px;
+      color:var(--ink);
+    }
+    .empty-state {
+      text-align:center; padding:40px 20px;
+      color:var(--ink-soft); font-size:.95rem;
+      border:1.5px dashed var(--border); border-radius:var(--radius);
+    }
+    .resource-grid { display:grid; gap:14px; }
+    .card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:var(--radius); padding:20px 22px;
+      box-shadow:0 1px 6px rgba(0,0,0,.05);
+      transition: box-shadow .15s, transform .1s;
+      cursor:default;
+    }
+    .card:hover { box-shadow: var(--shadow); transform:translateY(-1px); }
+    .card-header { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+    .card-name { font-weight:600; font-size:1rem; color:var(--ink); }
+    .badge {
+      font-size:.72rem; font-weight:600; padding:3px 10px; border-radius:20px;
+      text-transform:uppercase; letter-spacing:.05em; white-space:nowrap;
+    }
+    .badge-food       { background:#e8f5e9; color:#2e7d32; }
+    .badge-housing    { background:#e3f2fd; color:#1565c0; }
+    .badge-health     { background:#fce4ec; color:#ad1457; }
+    .badge-mental     { background:#f3e5f5; color:#6a1b9a; }
+    .badge-immigration{ background:#fff8e1; color:#e65100; }
+    .badge-family     { background:#e8eaf6; color:#283593; }
+    .badge-safety     { background:#fbe9e7; color:#bf360c; }
+    .badge-seniors    { background:#e0f7fa; color:#006064; }
 
-  /* ===== Report Error button + modal ===== */
-  #report-btn {
-    position: fixed; bottom: 20px; right: 20px; z-index: 80;
-    background: var(--alert); color: #fff; border: none; border-radius: 999px;
-    padding: 12px 18px; font-size: 14px; font-weight: 700; cursor: pointer;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  }
-  #report-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; align-items: center; justify-content: center; padding: 16px; }
-  #report-overlay.open { display: flex; }
-  #report-modal { background: #fff; width: 100%; max-width: 480px; border-radius: 14px; padding: 24px; max-height: 90vh; overflow-y: auto; }
-  #report-modal h2 { margin: 0 0 4px; }
-  #report-modal .sub { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
-  #report-modal label { display: block; font-size: 13px; font-weight: 700; margin: 12px 0 4px; }
-  #report-modal input, #report-modal textarea, #report-modal select {
-    width: 100%; padding: 10px 11px; border: 1px solid var(--line);
-    border-radius: 8px; font-size: 14px; font-family: inherit;
-  }
-  #report-modal textarea { min-height: 90px; }
-  #report-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
-  #report-success { display: none; color: #1e7e34; margin-top: 10px; font-size: 14px; }
-  #report-err { display: none; color: var(--alert); margin-top: 10px; font-size: 14px; }
-</style>
+    .card-desc { font-size:.9rem; color:var(--ink-soft); margin:8px 0 10px; }
+    .card-meta { display:flex; gap:14px; flex-wrap:wrap; font-size:.82rem; color:var(--ink-soft); }
+    .card-meta span::before { margin-right:4px; }
+    .card-actions { margin-top:12px; display:flex; gap:8px; flex-wrap:wrap; }
+    .card-link {
+      font-size:.82rem; font-weight:500; padding:5px 13px; border-radius:6px;
+      text-decoration:none; border:1.5px solid var(--border); color:var(--teal);
+      transition:all .15s;
+    }
+    .card-link:hover { background:var(--teal-lt); border-color:var(--teal); }
+    .card-link.phone { color:var(--ink-mid); }
+
+    /* ── Error report button ── */
+    #report-btn {
+      position:fixed; bottom:24px; right:24px; z-index:200;
+      background:var(--red); color:#fff; border:none;
+      padding:11px 18px; border-radius:40px; font-family:inherit;
+      font-size:.85rem; font-weight:600; cursor:pointer;
+      box-shadow:0 4px 14px rgba(201,64,64,.4);
+      transition:background .15s, transform .1s;
+      display:flex; align-items:center; gap:7px;
+    }
+    #report-btn:hover { background:#a83232; transform:scale(1.03); }
+
+    /* ── Modal ── */
+    .modal-overlay {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,.45); z-index:300;
+      align-items:center; justify-content:center; padding:20px;
+    }
+    .modal-overlay.open { display:flex; }
+    .modal {
+      background:var(--white); border-radius:16px;
+      padding:32px; max-width:500px; width:100%;
+      box-shadow:0 20px 60px rgba(0,0,0,.25);
+      position:relative;
+    }
+    .modal h2 { font-family:'DM Serif Display',serif; font-size:1.3rem; margin-bottom:6px; }
+    .modal .sub { font-size:.85rem; color:var(--ink-soft); margin-bottom:22px; }
+    .modal label { display:block; font-size:.8rem; font-weight:600; color:var(--ink-mid); text-transform:uppercase; letter-spacing:.06em; margin-bottom:6px; margin-top:14px; }
+    .modal input, .modal select, .modal textarea {
+      width:100%; padding:10px 14px; border:1.5px solid var(--border);
+      border-radius:8px; font-family:inherit; font-size:.93rem;
+      background:var(--bg); color:var(--ink);
+    }
+    .modal textarea { min-height:90px; resize:vertical; }
+    .modal input:focus, .modal select:focus, .modal textarea:focus { outline:none; border-color:var(--teal); }
+    .modal-actions { display:flex; gap:10px; margin-top:22px; justify-content:flex-end; }
+    .modal-close { position:absolute; top:16px; right:18px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--ink-soft); line-height:1; }
+    .form-success { display:none; text-align:center; padding:20px 0; }
+    .form-success .check { font-size:2.5rem; margin-bottom:10px; }
+    .form-success p { color:var(--ink-soft); }
+    .form-error-msg { display:none; color:var(--red); font-size:.85rem; margin-top:8px; }
+
+    /* ── Footer ── */
+    footer {
+      border-top:1px solid var(--border); padding:28px 24px;
+      text-align:center; font-size:.84rem; color:var(--ink-soft);
+      max-width:860px; margin:0 auto;
+    }
+    footer p + p { margin-top:6px; }
+    footer strong { color:var(--ink); }
+
+    /* ── Responsive ── */
+    @media (max-width:520px) {
+      .filter-grid { grid-template-columns:1fr; }
+      main { padding:28px 16px 100px; }
+    }
+  </style>
 </head>
 <body>
 
-<a class="skip" href="#main">Skip to content</a>
+<a href="#main" class="skip">Skip to content</a>
 
-<header class="site">
-  <div class="wrap row">
-    <div class="brand"><span class="dot"></span><span data-i18n="brand">SJ Care Connect</span></div>
-    <nav class="lang" aria-label="Language">
-      <button id="lang-en" class="active" aria-pressed="true">English</button>
-      <button id="lang-es" aria-pressed="false">Español</button>
-    </nav>
+<header>
+  <div class="logo">SJ Care Connect</div>
+  <div class="lang-btns">
+    <button class="lang-btn active" onclick="setLang('en')">English</button>
+    <button class="lang-btn" onclick="setLang('es')">Español</button>
   </div>
 </header>
 
-<main id="main" class="wrap">
+<main id="main">
 
   <section class="hero">
-    <h1 data-i18n="hero-title">Find the help you need in San José.</h1>
-    <p class="lede" data-i18n="hero-lede">Free. Bilingual. Built by a local. Answer three quick questions and we'll show you the right resources for your situation — no signups, no judgment.</p>
+    <h1>Find the help you need<br><span>in San José.</span></h1>
+    <p>Free. Bilingual. Built by a local. Answer three quick questions and we'll show you the right resources — no signups, no judgment.</p>
   </section>
 
-  <!-- 3-question triage -->
-  <section class="triage" aria-labelledby="triage-h">
-    <h2 id="triage-h" data-i18n="triage-h">Three quick questions</h2>
-    <p class="sub" data-i18n="triage-sub">Tres preguntas rápidas. Tell us a little so we can show what's most relevant.</p>
-    <div class="qrow">
-      <div>
-        <label for="q-need" data-i18n="q-need">What do you need most right now?</label>
-        <select id="q-need">
-          <option value="" data-i18n="q-any">Show me everything</option>
-          <option value="food" data-i18n="cat-food">Food</option>
-          <option value="housing" data-i18n="cat-housing">Housing / Shelter</option>
-          <option value="health" data-i18n="cat-health">Healthcare</option>
-          <option value="mental" data-i18n="cat-mental">Mental health</option>
-          <option value="immigration" data-i18n="cat-immigration">Immigration / Legal</option>
-          <option value="family" data-i18n="cat-family">Family / Kids</option>
-          <option value="dv" data-i18n="cat-dv">Safety / Domestic violence</option>
-          <option value="senior" data-i18n="cat-senior">Senior services</option>
+  <section class="filter-card" aria-label="Filter resources">
+    <h2 id="filter-heading">Three quick questions</h2>
+    <p class="sub">Tres preguntas rápidas. Tell us a little so we can show what's most relevant.</p>
+    <div class="filter-grid">
+      <div class="filter-group">
+        <label for="sel-need">What do you need most?</label>
+        <select id="sel-need">
+          <option value="">Show me everything</option>
+          <option value="food">Food</option>
+          <option value="housing">Housing / Shelter</option>
+          <option value="health">Healthcare</option>
+          <option value="mental">Mental health</option>
+          <option value="immigration">Immigration / Legal</option>
+          <option value="family">Family / Kids</option>
+          <option value="safety">Safety / Domestic violence</option>
+          <option value="seniors">Senior services</option>
         </select>
       </div>
-      <div>
-        <label for="q-area" data-i18n="q-area">What part of SJ are you in?</label>
-        <select id="q-area">
-          <option value="" data-i18n="q-anywhere">Anywhere in SJ</option>
+      <div class="filter-group">
+        <label for="sel-area">What part of SJ?</label>
+        <select id="sel-area">
+          <option value="">Anywhere in SJ</option>
           <option value="downtown">Downtown / Central</option>
           <option value="east">East San José</option>
           <option value="south">South San José</option>
@@ -205,10 +295,10 @@
           <option value="north">North San José / Berryessa</option>
         </select>
       </div>
-      <div>
-        <label for="q-lang" data-i18n="q-lang">Preferred language?</label>
-        <select id="q-lang">
-          <option value="" data-i18n="q-anylang">Any</option>
+      <div class="filter-group">
+        <label for="sel-lang">Preferred language?</label>
+        <select id="sel-lang">
+          <option value="">Any</option>
           <option value="en">English</option>
           <option value="es">Español</option>
           <option value="vi">Tiếng Việt</option>
@@ -216,473 +306,418 @@
         </select>
       </div>
     </div>
-    <div class="actions">
-      <button class="btn primary" id="btn-search" data-i18n="btn-search">Show me resources</button>
-      <button class="btn ghost" id="btn-clear" data-i18n="btn-clear">Clear</button>
+    <div class="filter-actions">
+      <button class="btn-primary" onclick="applyFilters()">Show me resources</button>
+      <button class="btn-ghost" onclick="clearFilters()">Clear</button>
     </div>
   </section>
 
-  <!-- Search + chips -->
-  <section aria-labelledby="results-h">
-    <h2 id="results-h" class="sr-only" style="position:absolute;left:-9999px">Results</h2>
-    <div class="search">
-      <input id="q-text" type="search" placeholder="Search by name or keyword (e.g. food pantry, dental)" aria-label="Search resources" />
+  <section id="results-section" aria-label="Resources">
+    <h2>Results</h2>
+    <div class="tabs" role="tablist" aria-label="Category filter">
+      <button class="tab active" data-cat="" onclick="filterTab(this,'')">All</button>
+      <button class="tab" data-cat="food" onclick="filterTab(this,'food')">Food</button>
+      <button class="tab" data-cat="housing" onclick="filterTab(this,'housing')">Housing</button>
+      <button class="tab" data-cat="health" onclick="filterTab(this,'health')">Health</button>
+      <button class="tab" data-cat="mental" onclick="filterTab(this,'mental')">Mental health</button>
+      <button class="tab" data-cat="immigration" onclick="filterTab(this,'immigration')">Immigration</button>
+      <button class="tab" data-cat="family" onclick="filterTab(this,'family')">Family</button>
+      <button class="tab" data-cat="safety" onclick="filterTab(this,'safety')">DV / Safety</button>
+      <button class="tab" data-cat="seniors" onclick="filterTab(this,'seniors')">Seniors</button>
     </div>
-    <div class="chips" id="chip-row" role="tablist" aria-label="Categories">
-      <div class="chip active" data-cat="" tabindex="0">All</div>
-      <div class="chip" data-cat="food" tabindex="0">Food</div>
-      <div class="chip" data-cat="housing" tabindex="0">Housing</div>
-      <div class="chip" data-cat="health" tabindex="0">Health</div>
-      <div class="chip" data-cat="mental" tabindex="0">Mental health</div>
-      <div class="chip" data-cat="immigration" tabindex="0">Immigration</div>
-      <div class="chip" data-cat="family" tabindex="0">Family</div>
-      <div class="chip" data-cat="dv" tabindex="0">DV / Safety</div>
-      <div class="chip" data-cat="senior" tabindex="0">Seniors</div>
-    </div>
-    <div class="results-meta" id="meta"></div>
-    <div class="grid" id="grid"></div>
-    <div class="empty" id="empty" style="display:none">
-      <p data-i18n="empty">No matches with these filters. Try fewer filters, or call 211 (free, 24/7, multilingual) — they can help directly.</p>
-    </div>
+    <div id="results-grid" class="resource-grid"></div>
   </section>
+
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <p>SJ Care Connect — built and maintained by Ananya Bharathapudi. A free community tool. Not affiliated with the City of San José.</p>
-    <p>If you're in immediate danger, call 911. For 24/7 multilingual help, call <strong>211</strong> or visit <a href="https://www.211bayarea.org">211 Bay Area</a>.</p>
-    <p>Found an error? Use the red button (bottom right) or email <a href="mailto:ananyabvs@gmail.com">ananyabvs@gmail.com</a>.</p>
-  </div>
+<footer>
+  <p>SJ Care Connect — built and maintained by Ananya Bharathapudi. A free community tool. Not affiliated with the City of San José.</p>
+  <p>If you're in immediate danger, call <strong>911</strong>. For 24/7 multilingual help, call <strong>211</strong> or visit <a href="https://www.211bayarea.org" target="_blank" rel="noopener">211 Bay Area</a>.</p>
+  <p>Found an error? Use the red button (bottom right) or email <a href="mailto:ananyabvs@gmail.com">ananyabvs@gmail.com</a>.</p>
 </footer>
 
-<!-- ===== Report-error floating button + modal ===== -->
-<button id="report-btn" type="button" aria-label="Report an error">⚠️ Report an error / Reportar</button>
+<!-- Error report button -->
+<button id="report-btn" onclick="openModal()" aria-haspopup="dialog">
+  ⚠️ Report an error / Reportar
+</button>
 
-<div id="report-overlay" role="dialog" aria-modal="true" aria-labelledby="report-title">
-  <div id="report-modal">
-    <h2 id="report-title">Report an error</h2>
-    <div class="sub">Help us keep this directory accurate. / Ayúdanos a mantenerlo preciso.</div>
-    <form id="report-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-      <label for="r-type">What's wrong? / ¿Qué pasa?</label>
-      <select id="r-type" name="issue_type" required>
-        <option value="">— select / seleccionar —</option>
-        <option value="wrong_phone">Phone number wrong</option>
-        <option value="closed">Place is closed</option>
-        <option value="wrong_hours">Hours wrong</option>
-        <option value="wrong_language">Language info wrong</option>
-        <option value="missing">A resource is missing</option>
-        <option value="other">Other</option>
-      </select>
-      <label for="r-res">Which resource? / ¿Cuál recurso?</label>
-      <input id="r-res" name="resource_name" type="text" />
-      <label for="r-det">Details / Detalles</label>
-      <textarea id="r-det" name="details" required></textarea>
-      <label for="r-em">Your email (optional)</label>
-      <input id="r-em" name="reporter_email" type="email" />
-      <input type="hidden" name="page_url" id="r-url" />
-      <input type="hidden" name="_subject" value="🔴 SJC-Connect error report" />
-      <div id="report-actions">
-        <button class="btn ghost" type="button" id="r-cancel">Cancel</button>
-        <button class="btn primary" type="submit">Send report</button>
+<!-- Error report modal -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">×</button>
+    <h2 id="modal-title">Report an error</h2>
+    <p class="sub">Help us keep this directory accurate. / Ayúdanos a mantenerlo preciso.</p>
+
+    <div id="modal-form-body">
+      <form id="error-form" action="https://formspree.io/f/mvzykqvd" method="POST">
+        <label for="err-type">What's wrong? / ¿Qué pasa?</label>
+        <select id="err-type" name="issue_type" required>
+          <option value="">— select / seleccionar —</option>
+          <option value="Phone number wrong">Phone number wrong</option>
+          <option value="Place is closed">Place is closed</option>
+          <option value="Hours wrong">Hours wrong</option>
+          <option value="Language info wrong">Language info wrong</option>
+          <option value="A resource is missing">A resource is missing</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="err-resource">Which resource? / ¿Cuál recurso?</label>
+        <input type="text" id="err-resource" name="resource_name" placeholder="Name of the resource..." />
+
+        <label for="err-detail">Details / Detalles</label>
+        <textarea id="err-detail" name="details" placeholder="Tell us what's wrong..."></textarea>
+
+        <label for="err-email">Your email (optional)</label>
+        <input type="email" id="err-email" name="_replyto" placeholder="you@example.com" />
+
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <p class="form-error-msg" id="form-err-msg">Something went wrong. Please email <a href="mailto:ananyabvs@gmail.com">ananyabvs@gmail.com</a> directly.</p>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-ghost" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn-primary">Send report</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="form-success" id="form-success">
+      <div class="check">✓</div>
+      <p><strong>Thank you — report sent.</strong></p>
+      <p style="margin-top:6px;color:#6b7280;font-size:.9rem;">We review all reports and update the directory regularly.</p>
+      <div class="modal-actions" style="justify-content:center;margin-top:18px;">
+        <button class="btn-ghost" onclick="closeModal()">Close</button>
       </div>
-      <div id="report-success">✓ Thank you — report sent.</div>
-      <div id="report-err">Something went wrong. Email ananyabvs@gmail.com directly.</div>
-    </form>
+    </div>
   </div>
 </div>
 
 <script>
-/* =========================================================
-   Resource dataset — curated for San José
-   Verify each entry seasonally; flag stale ones via report button.
-   ========================================================= */
+// ── Resource data ──────────────────────────────────────────────────
 const RESOURCES = [
-  // FOOD
-  { name: "Second Harvest of Silicon Valley", cat: "food",
-    desc: "Largest food bank in SCC. Connects you to a free food pantry near you. Multilingual.",
-    descES: "El banco de alimentos más grande del condado. Te conecta con una despensa gratuita cerca de ti.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es","vi","zh"],
-    phone: "1-800-984-3663", url: "https://www.shfb.org", neighborhood: "Countywide" },
-  { name: "Sacred Heart Community Service", cat: "food",
-    desc: "Free groceries, financial assistance, and family support. Walk-ins welcome.",
-    descES: "Comestibles gratis, asistencia financiera y apoyo familiar. Bienvenidos sin cita.",
-    area: ["downtown","east"], lang: ["en","es"],
-    phone: "408-278-2160", url: "https://sacredheartcs.org", neighborhood: "Central SJ" },
-  { name: "Martha's Kitchen", cat: "food",
-    desc: "Free hot meals, no questions asked. Lunch service most days.",
-    descES: "Comidas calientes gratis, sin preguntas. Almuerzo casi todos los días.",
-    area: ["downtown"], lang: ["en","es"],
-    phone: "408-293-6111", url: "https://marthas-kitchen.org", neighborhood: "Downtown" },
-  { name: "Loaves & Fishes Family Kitchen", cat: "food",
-    desc: "Free hot lunches at multiple SJ sites.",
-    descES: "Almuerzos calientes gratis en varios lugares de SJ.",
-    area: ["downtown","east","south"], lang: ["en","es"],
-    phone: "408-922-5564", url: "https://www.loavesfishes.org", neighborhood: "Multiple sites" },
-  { name: "CityTeam San Jose", cat: "food",
-    desc: "Daily meals, food boxes, and recovery programs.",
-    descES: "Comidas diarias, cajas de comida y programas de recuperación.",
-    area: ["downtown"], lang: ["en","es"],
-    phone: "408-232-5600", url: "https://www.cityteam.org/san-jose", neighborhood: "Central" },
-
-  // HOUSING
-  { name: "HomeFirst Services", cat: "housing",
-    desc: "Emergency shelter, transitional and permanent housing. Largest shelter provider in SCC.",
-    descES: "Refugio de emergencia, vivienda transicional y permanente.",
-    area: ["downtown","north","south"], lang: ["en","es"],
-    phone: "408-294-2100", url: "https://homefirstscc.org", neighborhood: "Countywide" },
-  { name: "Destination: Home", cat: "housing",
-    desc: "Coordinated entry for housing services + rental assistance for families at risk.",
-    descES: "Entrada coordinada para servicios de vivienda y asistencia de alquiler.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es"],
-    phone: "408-380-9744", url: "https://destinationhomesv.org", neighborhood: "Countywide" },
-  { name: "Bill Wilson Center", cat: "housing",
-    desc: "Youth shelter, drop-in center, transitional housing for ages 18–24.",
-    descES: "Refugio juvenil y vivienda transicional para jóvenes de 18 a 24.",
-    area: ["west","downtown"], lang: ["en","es"],
-    phone: "408-243-0222", url: "https://www.billwilsoncenter.org", neighborhood: "West SJ" },
-  { name: "EHC LifeBuilders", cat: "housing",
-    desc: "Shelter and supportive housing across SCC.",
-    descES: "Refugio y vivienda con apoyo en todo el condado.",
-    area: ["south","east"], lang: ["en","es"],
-    phone: "408-539-2100", url: "https://www.ehclifebuilders.org", neighborhood: "Countywide" },
-
-  // HEALTHCARE
-  { name: "Gardner Family Health Network", cat: "health",
-    desc: "Federally qualified health center. Sliding-scale primary care, dental, behavioral health.",
-    descES: "Centro de salud calificado federalmente. Atención primaria, dental y conductual con escala de pago.",
-    area: ["downtown","east","south"], lang: ["en","es","vi"],
-    phone: "408-274-6800", url: "https://www.gardnerhealth.com", neighborhood: "Multiple clinics" },
-  { name: "Indian Health Center of Santa Clara Valley", cat: "health",
-    desc: "Primary care, dental, behavioral health for all — Native and non-Native welcome.",
-    descES: "Atención primaria, dental y conductual para todos.",
-    area: ["downtown"], lang: ["en","es"],
-    phone: "408-445-3400", url: "https://indianhealthcenter.org", neighborhood: "Central SJ" },
-  { name: "MayView Community Health Center", cat: "health",
-    desc: "Free / low-cost medical, dental, behavioral health. No insurance needed.",
-    descES: "Atención médica, dental y conductual gratis o de bajo costo. Sin seguro requerido.",
-    area: ["west","north"], lang: ["en","es","zh"],
-    phone: "650-967-7430", url: "https://mayview.org", neighborhood: "West / Mountain View area" },
-  { name: "Asian Americans for Community Involvement (AACI)", cat: "health",
-    desc: "Bilingual primary care, behavioral health, DV survivor services. Strong API focus.",
-    descES: "Atención primaria bilingüe, salud conductual, servicios para sobrevivientes de violencia.",
-    area: ["downtown","north"], lang: ["en","es","vi","zh"],
-    phone: "408-975-2730", url: "https://aaci.org", neighborhood: "Central SJ" },
-  { name: "Santa Clara Valley Medical Center", cat: "health",
-    desc: "County hospital. Charity-care program for uninsured residents.",
-    descES: "Hospital del condado. Programa de caridad para personas sin seguro.",
-    area: ["downtown","west"], lang: ["en","es","vi"],
-    phone: "408-885-5000", url: "https://www.scvmc.org", neighborhood: "Central SJ" },
-
-  // MENTAL HEALTH
-  { name: "NAMI Santa Clara County", cat: "mental",
-    desc: "Free support groups, family education, peer warmline (1-855-845-7415).",
-    descES: "Grupos de apoyo gratis, educación familiar, línea de apoyo entre pares.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es"],
-    phone: "408-453-0400", url: "https://namisantaclara.org", neighborhood: "Countywide" },
-  { name: "Bill Wilson Center — Youth Counseling", cat: "mental",
-    desc: "Free counseling for youth 12–25 + their families.",
-    descES: "Consejería gratis para jóvenes de 12 a 25 y sus familias.",
-    area: ["west","downtown"], lang: ["en","es"],
-    phone: "408-243-0222", url: "https://www.billwilsoncenter.org", neighborhood: "Countywide" },
-  { name: "Santa Clara County Behavioral Health Call Center", cat: "mental",
-    desc: "24/7 mental health and substance use referrals. Multilingual.",
-    descES: "Referencias de salud mental y uso de sustancias 24/7.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es","vi","zh"],
-    phone: "1-800-704-0900", url: "https://bhsd.sccgov.org", neighborhood: "Countywide" },
-
-  // IMMIGRATION
-  { name: "SIREN — Services Immigrant Rights & Education Network", cat: "immigration",
-    desc: "Free / low-cost immigration legal help. DACA, citizenship, family petitions.",
-    descES: "Ayuda legal de inmigración gratis o de bajo costo. DACA, ciudadanía, peticiones familiares.",
-    area: ["downtown","east"], lang: ["en","es","vi"],
-    phone: "408-453-3003", url: "https://www.sirenbayarea.org", neighborhood: "Central SJ" },
-  { name: "Catholic Charities of Santa Clara County", cat: "immigration",
-    desc: "Immigration legal services, refugee resettlement, family programs.",
-    descES: "Servicios legales de inmigración, reasentamiento de refugiados, programas familiares.",
-    area: ["downtown","east","south"], lang: ["en","es","vi"],
-    phone: "408-468-0100", url: "https://catholiccharitiesscc.org", neighborhood: "Countywide" },
-  { name: "Asian Law Alliance", cat: "immigration",
-    desc: "Free legal services for low-income API community — immigration, housing, public benefits.",
-    descES: "Servicios legales gratis para la comunidad API de bajos ingresos.",
-    area: ["downtown"], lang: ["en","es","vi","zh"],
-    phone: "408-287-9710", url: "https://www.asianlawalliance.org", neighborhood: "Central SJ" },
-
-  // FAMILY / KIDS
-  { name: "SOMOS Mayfair", cat: "family",
-    desc: "East SJ family programs — promotoras, parent leadership, kids' education.",
-    descES: "Programas familiares del este de SJ — promotoras, liderazgo de padres, educación infantil.",
-    area: ["east"], lang: ["en","es"],
-    phone: "408-251-8466", url: "https://somosmayfair.org", neighborhood: "East SJ (Mayfair)" },
-  { name: "Catholic Charities — Family Programs", cat: "family",
-    desc: "After-school, summer programs, family case management.",
-    descES: "Programas después de la escuela, programas de verano, manejo de casos familiares.",
-    area: ["downtown","east","south"], lang: ["en","es"],
-    phone: "408-468-0100", url: "https://catholiccharitiesscc.org", neighborhood: "Multiple sites" },
-  { name: "FIRST 5 Santa Clara County", cat: "family",
-    desc: "Free programs for families with kids 0–5. Health, early learning, parent support.",
-    descES: "Programas gratis para familias con niños de 0 a 5 años.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es","vi"],
-    phone: "408-260-3700", url: "https://first5kids.org", neighborhood: "Countywide" },
-  { name: "Parents Helping Parents", cat: "family",
-    desc: "Support, education, and advocacy for families of kids with special needs.",
-    descES: "Apoyo, educación y defensa para familias con niños con necesidades especiales.",
-    area: ["west"], lang: ["en","es","vi","zh"],
-    phone: "408-727-5775", url: "https://php.com", neighborhood: "West SJ" },
-
-  // SAFETY / DV
-  { name: "Next Door Solutions to Domestic Violence", cat: "dv",
-    desc: "24/7 crisis line, shelter, legal advocacy. Free, confidential.",
-    descES: "Línea de crisis 24/7, refugio, asistencia legal. Gratis y confidencial.",
-    area: ["downtown","east"], lang: ["en","es","vi"],
-    phone: "408-279-2962", url: "https://www.nextdoorsolutions.org", neighborhood: "Countywide" },
-  { name: "YWCA Silicon Valley", cat: "dv",
-    desc: "Sexual-assault and DV crisis services, counseling, advocacy.",
-    descES: "Servicios de crisis por agresión sexual y violencia doméstica, consejería.",
-    area: ["downtown"], lang: ["en","es","vi"],
-    phone: "1-800-572-2782", url: "https://ywca-sv.org", neighborhood: "Countywide" },
-  { name: "Asian Women's Home (AACI)", cat: "dv",
-    desc: "Shelter and services for DV survivors. Multilingual API focus.",
-    descES: "Refugio y servicios para sobrevivientes de violencia doméstica.",
-    area: ["downtown"], lang: ["en","es","vi","zh"],
-    phone: "408-975-2739", url: "https://aaci.org", neighborhood: "Central SJ" },
-  { name: "Maitri", cat: "dv",
-    desc: "South Asian DV support — culturally specific, confidential, free.",
-    descES: "Apoyo de violencia doméstica para la comunidad del sur de Asia.",
-    area: ["west","north"], lang: ["en"],
-    phone: "1-888-862-4874", url: "https://maitri.org", neighborhood: "Bay Area" },
-
-  // SENIORS
-  { name: "Catholic Charities Senior Nutrition", cat: "senior",
-    desc: "Free meals at senior centers; home-delivered meals for homebound elders.",
-    descES: "Comidas gratis en centros para adultos mayores; entregas a domicilio.",
-    area: ["downtown","east","south"], lang: ["en","es","vi"],
-    phone: "408-325-5161", url: "https://catholiccharitiesscc.org", neighborhood: "Multiple sites" },
-  { name: "Yu-Ai Kai Japantown Senior Services", cat: "senior",
-    desc: "Senior center, social services, lunch program. Japanese & multilingual.",
-    descES: "Centro para adultos mayores, servicios sociales, programa de almuerzo.",
-    area: ["downtown"], lang: ["en"],
-    phone: "408-294-2505", url: "https://www.yuaikai.org", neighborhood: "Japantown" },
-  { name: "Self-Help for the Elderly", cat: "senior",
-    desc: "Chinese-speaking senior services — home care, social services, meals.",
-    descES: "Servicios para adultos mayores con personal de habla china.",
-    area: ["downtown","north"], lang: ["en","zh"],
-    phone: "408-378-0359", url: "https://www.selfhelpelderly.org", neighborhood: "Central / North SJ" },
-
-  // GENERAL / 211
-  { name: "211 Bay Area", cat: "food",
-    desc: "Free 24/7 multilingual helpline that connects you to ANY local resource. Dial 211.",
-    descES: "Línea gratuita 24/7 multilingüe que te conecta con cualquier recurso local. Marca 211.",
-    area: ["downtown","east","south","west","north"], lang: ["en","es","vi","zh"],
-    phone: "211", url: "https://www.211bayarea.org", neighborhood: "Bay Area" }
+  {
+    id: "second-harvest",
+    name: "Second Harvest of Silicon Valley",
+    cat: "food",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es","vi","zh"],
+    desc: "Free food distributions at dozens of sites across Santa Clara County. No ID required.",
+    phone: "(408) 266-8866",
+    website: "https://www.shfb.org",
+    hours: "Multiple sites, various hours"
+  },
+  {
+    id: "catholic-charities-food",
+    name: "Catholic Charities of Santa Clara County",
+    cat: "food",
+    areas: ["downtown","east","south"],
+    langs: ["en","es"],
+    desc: "Emergency food pantry, hot meals, and food vouchers for low-income families.",
+    phone: "(408) 944-0567",
+    website: "https://catholiccharitiesscc.org",
+    hours: "Mon–Fri 9am–5pm"
+  },
+  {
+    id: "downtown-streets",
+    name: "Downtown Streets Team",
+    cat: "housing",
+    areas: ["downtown"],
+    langs: ["en","es"],
+    desc: "Empowers unhoused neighbors through work experience and wraparound services toward stable housing.",
+    phone: "(408) 971-7000",
+    website: "https://www.streetsteam.org",
+    hours: "Mon–Fri 8am–5pm"
+  },
+  {
+    id: "bhhc",
+    name: "Bill Wilson Center",
+    cat: "housing",
+    areas: ["downtown","east","south","north"],
+    langs: ["en","es"],
+    desc: "Emergency and transitional housing for youth and families experiencing homelessness.",
+    phone: "(408) 243-0222",
+    website: "https://billwilsoncenter.org",
+    hours: "24/7 crisis line"
+  },
+  {
+    id: "vta-health",
+    name: "Valley Health Centers",
+    cat: "health",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es","vi","zh"],
+    desc: "Low-cost primary care, dental, and vision for uninsured and Medi-Cal patients across SJ.",
+    phone: "(408) 729-2028",
+    website: "https://www.valleymedical.org/vhc",
+    hours: "Mon–Fri 8am–5pm"
+  },
+  {
+    id: "gardner-health",
+    name: "Gardner Health Services",
+    cat: "health",
+    areas: ["east","south"],
+    langs: ["en","es","vi"],
+    desc: "Federally Qualified Health Center offering primary, behavioral, and dental care on a sliding-fee scale.",
+    phone: "(408) 457-7100",
+    website: "https://gardnerhealthservices.org",
+    hours: "Mon–Fri 8am–6pm"
+  },
+  {
+    id: "momentum-mh",
+    name: "Momentum for Mental Health",
+    cat: "mental",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es"],
+    desc: "Outpatient mental health counseling, crisis services, and psychiatric care. Sliding-scale fees available.",
+    phone: "(408) 559-5600",
+    website: "https://www.momentumformh.org",
+    hours: "Mon–Fri 8:30am–5pm; 24/7 crisis"
+  },
+  {
+    id: "nami-scc",
+    name: "NAMI Santa Clara County",
+    cat: "mental",
+    areas: ["downtown","east","west"],
+    langs: ["en","es","zh"],
+    desc: "Free mental health education, peer support groups, and family advocacy.",
+    phone: "(408) 453-0400",
+    website: "https://namiscc.org",
+    hours: "Mon–Fri 9am–5pm"
+  },
+  {
+    id: "immigration-law-clinic",
+    name: "Santa Clara County Law Library Immigration Clinic",
+    cat: "immigration",
+    areas: ["downtown"],
+    langs: ["en","es"],
+    desc: "Free legal consultations for immigration matters including DACA, asylum, and naturalization.",
+    phone: "(408) 299-3567",
+    website: "https://www.sccll.org",
+    hours: "Wed 10am–12pm (walk-in)"
+  },
+  {
+    id: "ilrc",
+    name: "Immigrant Legal Resource Center – Bay Area",
+    cat: "immigration",
+    areas: ["downtown","east"],
+    langs: ["en","es","vi","zh"],
+    desc: "Know-your-rights workshops, legal screenings, and referrals for immigrants regardless of status.",
+    phone: "(415) 255-9499",
+    website: "https://www.ilrc.org",
+    hours: "Mon–Fri 9am–5pm"
+  },
+  {
+    id: "first5-scc",
+    name: "First 5 Santa Clara County",
+    cat: "family",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es","vi","zh"],
+    desc: "Resources for children 0–5: early learning, parenting classes, and family support programs.",
+    phone: "(408) 374-3970",
+    website: "https://first5scc.org",
+    hours: "Mon–Fri 8am–5pm"
+  },
+  {
+    id: "la-raza-services",
+    name: "La Raza Community Resource Center",
+    cat: "family",
+    areas: ["east"],
+    langs: ["en","es"],
+    desc: "Bilingual social services including youth programs, parenting support, and housing navigation.",
+    phone: "(408) 279-5230",
+    website: "https://www.larazacrc.org",
+    hours: "Mon–Fri 9am–5pm"
+  },
+  {
+    id: "wvcs",
+    name: "WomenÃ¢â‚¬â„¢s Violence Comprehensive Support (WVCS)",
+    cat: "safety",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es"],
+    desc: "Confidential shelter, hotline, legal advocacy, and counseling for survivors of domestic violence.",
+    phone: "(408) 279-2962",
+    website: "https://www.nu-wayinc.org",
+    hours: "24/7 hotline"
+  },
+  {
+    id: "asian-americans-dv",
+    name: "Asian Americans for Community Involvement — DV Program",
+    cat: "safety",
+    areas: ["east","downtown"],
+    langs: ["en","zh","vi"],
+    desc: "Culturally sensitive domestic violence counseling, shelter referrals, and legal services.",
+    phone: "(408) 975-2730",
+    website: "https://www.aaci.org",
+    hours: "Mon–Fri 9am–5pm"
+  },
+  {
+    id: "scc-aging",
+    name: "County of Santa Clara Aging and Adult Services",
+    cat: "seniors",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es","vi","zh"],
+    desc: "In-home support, Meals on Wheels, caregiver resources, and adult protective services.",
+    phone: "(408) 975-4900",
+    website: "https://www.sccgov.org/aas",
+    hours: "Mon–Fri 8am–5pm"
+  },
+  {
+    id: "outreach-seniors",
+    name: "Outreach & Escort Senior Transportation",
+    cat: "seniors",
+    areas: ["downtown","east","south","west","north"],
+    langs: ["en","es"],
+    desc: "Subsidized rides for seniors and people with disabilities to medical appointments and errands.",
+    phone: "(408) 295-0400",
+    website: "https://outreachinc.com",
+    hours: "Mon–Fri 7am–6pm"
+  }
 ];
 
-/* =========================================================
-   i18n — minimal English / Spanish dictionary
-   ========================================================= */
-const i18n = {
-  en: {
-    "brand": "SJ Care Connect",
-    "hero-title": "Find the help you need in San José.",
-    "hero-lede": "Free. Bilingual. Built by a local. Answer three quick questions and we'll show you the right resources for your situation — no signups, no judgment.",
-    "triage-h": "Three quick questions",
-    "triage-sub": "Tell us a little so we can show what's most relevant.",
-    "q-need": "What do you need most right now?",
-    "q-any": "Show me everything",
-    "cat-food": "Food", "cat-housing": "Housing / Shelter", "cat-health": "Healthcare",
-    "cat-mental": "Mental health", "cat-immigration": "Immigration / Legal",
-    "cat-family": "Family / Kids", "cat-dv": "Safety / Domestic violence", "cat-senior": "Senior services",
-    "q-area": "What part of SJ are you in?", "q-anywhere": "Anywhere in SJ",
-    "q-lang": "Preferred language?", "q-anylang": "Any",
-    "btn-search": "Show me resources", "btn-clear": "Clear",
-    "empty": "No matches with these filters. Try fewer filters, or call 211 (free, 24/7, multilingual) — they can help directly.",
-    "meta": (n) => n + " resource" + (n===1?"":"s") + " shown",
-    "call": "Call", "visit": "Visit"
-  },
-  es: {
-    "brand": "SJ Care Connect",
-    "hero-title": "Encuentra la ayuda que necesitas en San José.",
-    "hero-lede": "Gratis. Bilingüe. Hecho por una local. Responde tres preguntas rápidas y te mostraremos los recursos correctos para tu situación — sin registros, sin juicio.",
-    "triage-h": "Tres preguntas rápidas",
-    "triage-sub": "Cuéntanos un poco para mostrar lo más relevante.",
-    "q-need": "¿Qué necesitas más ahora?",
-    "q-any": "Muéstrame todo",
-    "cat-food": "Comida", "cat-housing": "Vivienda / Refugio", "cat-health": "Salud",
-    "cat-mental": "Salud mental", "cat-immigration": "Inmigración / Legal",
-    "cat-family": "Familia / Niños", "cat-dv": "Seguridad / Violencia doméstica", "cat-senior": "Adultos mayores",
-    "q-area": "¿En qué parte de SJ estás?", "q-anywhere": "Cualquier parte de SJ",
-    "q-lang": "¿Idioma preferido?", "q-anylang": "Cualquiera",
-    "btn-search": "Ver recursos", "btn-clear": "Limpiar",
-    "empty": "No hay coincidencias. Intenta menos filtros, o llama al 211 (gratis, 24/7, multilingüe).",
-    "meta": (n) => n + " recurso" + (n===1?"":"s") + " mostrado" + (n===1?"":"s"),
-    "call": "Llamar", "visit": "Visitar"
+// ── State ──────────────────────────────────────────────────────────
+let activeNeed = "";
+let activeArea = "";
+let activeLang = "";
+let activeCat  = "";
+
+// ── GoatCounter helper ─────────────────────────────────────────────
+function gcTrack(path, title) {
+  if (window.goatcounter && window.goatcounter.count) {
+    window.goatcounter.count({ path, title });
   }
-};
-let LANG = "en";
-
-function applyLang() {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (i18n[LANG][key]) el.textContent = i18n[LANG][key];
-  });
-  document.documentElement.setAttribute("lang", LANG);
 }
 
-/* =========================================================
-   Filtering + render
-   ========================================================= */
-function getFilters() {
-  return {
-    cat: document.querySelector(".chip.active").getAttribute("data-cat"),
-    need: document.getElementById("q-need").value,
-    area: document.getElementById("q-area").value,
-    lang: document.getElementById("q-lang").value,
-    text: document.getElementById("q-text").value.trim().toLowerCase()
-  };
+// ── Render ─────────────────────────────────────────────────────────
+function render(resources) {
+  const grid = document.getElementById("results-grid");
+  if (!resources.length) {
+    grid.innerHTML = `<div class="empty-state">
+      <p>No matches with these filters. Try fewer filters, or call <strong>211</strong> (free, 24/7, multilingual) — they can help directly.</p>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = resources.map(r => `
+    <div class="card" id="card-${r.id}">
+      <div class="card-header">
+        <span class="card-name">${r.name}</span>
+        <span class="badge badge-${r.cat}">${r.cat === 'mental' ? 'Mental Health' : r.cat === 'safety' ? 'DV / Safety' : r.cat.charAt(0).toUpperCase()+r.cat.slice(1)}</span>
+      </div>
+      <p class="card-desc">${r.desc}</p>
+      <div class="card-meta">
+        ${r.hours ? `<span>🕐 ${r.hours}</span>` : ''}
+        ${r.phone ? `<span>📞 ${r.phone}</span>` : ''}
+      </div>
+      <div class="card-actions">
+        ${r.phone ? `<a class="card-link phone" href="tel:${r.phone.replace(/\D/g,'')}" onclick="gcTrack('resource-call/${r.id}','Call: ${r.name}')">Call</a>` : ''}
+        ${r.website ? `<a class="card-link" href="${r.website}" target="_blank" rel="noopener" onclick="gcTrack('resource-visit/${r.id}','Visit: ${r.name}')">Website →</a>` : ''}
+        <button class="card-link" onclick="openReportFor('${r.name}')" style="background:none;cursor:pointer;">Report error</button>
+      </div>
+    </div>
+  `).join('');
 }
 
-function render() {
-  const f = getFilters();
-  // category source: chip OR triage dropdown (chip wins if set)
-  const cat = f.cat || f.need;
-  const filtered = RESOURCES.filter(r => {
-    if (cat && r.cat !== cat) return false;
-    if (f.area && !r.area.includes(f.area)) return false;
-    if (f.lang && !r.lang.includes(f.lang)) return false;
-    if (f.text) {
-      const hay = (r.name + " " + r.desc + " " + (r.descES||"") + " " + (r.neighborhood||"")).toLowerCase();
-      if (!hay.includes(f.text)) return false;
-    }
+function getFiltered() {
+  return RESOURCES.filter(r => {
+    if (activeNeed && r.cat !== activeNeed) return false;
+    if (activeArea && !r.areas.includes(activeArea)) return false;
+    if (activeLang && !r.langs.includes(activeLang)) return false;
+    if (activeCat  && r.cat !== activeCat) return false;
     return true;
   });
-
-  const grid = document.getElementById("grid");
-  const empty = document.getElementById("empty");
-  const meta = document.getElementById("meta");
-
-  meta.textContent = i18n[LANG]["meta"](filtered.length);
-  if (filtered.length === 0) { grid.innerHTML = ""; empty.style.display = "block"; return; }
-  empty.style.display = "none";
-
-  grid.innerHTML = filtered.map(r => {
-    const desc = (LANG === "es" && r.descES) ? r.descES : r.desc;
-    const langTags = r.lang.map(l => ({en:"EN",es:"ES",vi:"VI",zh:"中"})[l] || l).join(" · ");
-    return `
-      <article class="card" data-resource="${escapeHtml(r.name)}">
-        <span class="cat">${labelFor(r.cat)}</span>
-        <h3>${escapeHtml(r.name)}</h3>
-        <p class="desc">${escapeHtml(desc)}</p>
-        <p class="meta">${escapeHtml(r.neighborhood || "")} · ${langTags}</p>
-        <div class="actions">
-          ${r.phone ? `<a class="call" href="tel:${escapeHtml(r.phone.replace(/[^0-9+]/g,''))}">${i18n[LANG]["call"]} ${escapeHtml(r.phone)}</a>` : ""}
-          ${r.url ? `<a href="${escapeHtml(r.url)}" target="_blank" rel="noopener">${i18n[LANG]["visit"]}</a>` : ""}
-        </div>
-      </article>
-    `;
-  }).join("");
 }
 
-function labelFor(cat) {
-  const map = { food:"cat-food", housing:"cat-housing", health:"cat-health", mental:"cat-mental",
-    immigration:"cat-immigration", family:"cat-family", dv:"cat-dv", senior:"cat-senior" };
-  return i18n[LANG][map[cat]] || cat;
-}
-function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
-
-/* =========================================================
-   Event wiring
-   ========================================================= */
-document.getElementById("lang-en").addEventListener("click", () => { LANG = "en"; setLangButtons(); applyLang(); render(); });
-document.getElementById("lang-es").addEventListener("click", () => { LANG = "es"; setLangButtons(); applyLang(); render(); });
-function setLangButtons() {
-  document.getElementById("lang-en").classList.toggle("active", LANG === "en");
-  document.getElementById("lang-es").classList.toggle("active", LANG === "es");
-  document.getElementById("lang-en").setAttribute("aria-pressed", LANG === "en");
-  document.getElementById("lang-es").setAttribute("aria-pressed", LANG === "es");
+function applyFilters() {
+  activeNeed = document.getElementById('sel-need').value;
+  activeArea = document.getElementById('sel-area').value;
+  activeLang = document.getElementById('sel-lang').value;
+  // sync tabs
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.cat === (activeNeed || ''));
+  });
+  activeCat = activeNeed;
+  const results = getFiltered();
+  gcTrack(`filter/need=${activeNeed}&area=${activeArea}&lang=${activeLang}`, 'Filter applied');
+  render(results);
+  document.getElementById('results-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-document.getElementById("btn-search").addEventListener("click", render);
-document.getElementById("btn-clear").addEventListener("click", () => {
-  document.getElementById("q-need").value = "";
-  document.getElementById("q-area").value = "";
-  document.getElementById("q-lang").value = "";
-  document.getElementById("q-text").value = "";
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-  document.querySelector('.chip[data-cat=""]').classList.add("active");
-  render();
+function clearFilters() {
+  activeNeed = ""; activeArea = ""; activeLang = ""; activeCat = "";
+  document.getElementById('sel-need').value = '';
+  document.getElementById('sel-area').value = '';
+  document.getElementById('sel-lang').value = '';
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.cat === ''));
+  render(RESOURCES);
+}
+
+function filterTab(el, cat) {
+  activeCat = cat;
+  activeNeed = cat;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  gcTrack(`tab/${cat || 'all'}`, `Tab: ${cat || 'All'}`);
+  render(getFiltered());
+}
+
+// ── Modal ──────────────────────────────────────────────────────────
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('open');
+  gcTrack('error-report-open', 'Error report modal opened');
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('modal-form-body').style.display = '';
+  document.getElementById('form-success').style.display = 'none';
+  document.getElementById('error-form').reset();
+  document.getElementById('form-err-msg').style.display = 'none';
+}
+function openReportFor(name) {
+  document.getElementById('err-resource').value = name;
+  openModal();
+}
+document.getElementById('modal-overlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
 });
-document.getElementById("q-text").addEventListener("input", render);
-document.querySelectorAll(".chip").forEach(chip => {
-  chip.addEventListener("click", () => {
-    document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-    chip.classList.add("active");
-    render();
-    // analytics event
-    if (window.goatcounter && window.goatcounter.count) {
-      window.goatcounter.count({ path: "event-chip-" + (chip.getAttribute("data-cat") || "all"), event: true });
+
+// Formspree AJAX submit
+document.getElementById('error-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = this.querySelector('[type=submit]');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+  try {
+    const res = await fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      document.getElementById('modal-form-body').style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      gcTrack('error-report-submitted', 'Error report submitted');
+    } else {
+      document.getElementById('form-err-msg').style.display = 'block';
+      btn.textContent = 'Send report'; btn.disabled = false;
     }
-  });
-  chip.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); chip.click(); }
-  });
-});
-
-// Track card clicks (call or visit)
-document.getElementById("grid").addEventListener("click", (e) => {
-  const a = e.target.closest("a");
-  if (!a) return;
-  const card = a.closest("[data-resource]");
-  const name = card ? card.getAttribute("data-resource") : "unknown";
-  const action = a.classList.contains("call") ? "call" : "visit";
-  if (window.goatcounter && window.goatcounter.count) {
-    window.goatcounter.count({ path: "event-" + action + "-" + name, event: true });
+  } catch {
+    document.getElementById('form-err-msg').style.display = 'block';
+    btn.textContent = 'Send report'; btn.disabled = false;
   }
 });
 
-/* =========================================================
-   Report-error modal wiring
-   ========================================================= */
-(function() {
-  const btn = document.getElementById("report-btn");
-  const overlay = document.getElementById("report-overlay");
-  const form = document.getElementById("report-form");
-  const cancel = document.getElementById("r-cancel");
-  const url = document.getElementById("r-url");
-  const okMsg = document.getElementById("report-success");
-  const errMsg = document.getElementById("report-err");
+// ── Language toggle (stub — extend with i18n strings as needed) ───
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase().startsWith(lang)));
+  gcTrack(`lang/${lang}`, `Language: ${lang}`);
+}
 
-  function open() {
-    url.value = window.location.href;
-    overlay.classList.add("open");
-    okMsg.style.display = "none"; errMsg.style.display = "none";
-    if (window.goatcounter && window.goatcounter.count) {
-      window.goatcounter.count({ path: "event-report-opened", event: true });
-    }
-  }
-  function close() { overlay.classList.remove("open"); }
-  btn.addEventListener("click", open);
-  cancel.addEventListener("click", close);
-  overlay.addEventListener("click", e => { if (e.target === overlay) close(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+// ── Initial render ─────────────────────────────────────────────────
+render(RESOURCES);
 
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    fetch(form.action, { method: "POST", body: new FormData(form), headers: { Accept: "application/json" } })
-      .then(r => {
-        if (r.ok) {
-          form.reset(); okMsg.style.display = "block"; errMsg.style.display = "none";
-          if (window.goatcounter && window.goatcounter.count) {
-            window.goatcounter.count({ path: "event-report-submitted", event: true });
-          }
-          setTimeout(close, 1800);
-        } else errMsg.style.display = "block";
-      })
-      .catch(() => errMsg.style.display = "block");
-  });
-})();
-
-// Initial render
-applyLang();
-render();
+// Track page view with GoatCounter (already handled by the script tag, but explicit path for SPA use)
+window.addEventListener('load', () => {
+  gcTrack('/', 'SJ Care Connect – Home');
+});
 </script>
+
 </body>
 </html>
